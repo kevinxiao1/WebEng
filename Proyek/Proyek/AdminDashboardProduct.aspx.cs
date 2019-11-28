@@ -334,8 +334,21 @@ namespace Proyek
                     }
                 }
 
+                string temp = "";
+                for (int i = 0; i < c.Length; i++)
+                {
+                    if(c[i]!=',')
+                    {
+                        temp += c[i];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
 
-                tb_sellprice.Text = int.Parse(c)+"";
+
+                tb_sellprice.Text = int.Parse(temp)+"";
 
 
                 
