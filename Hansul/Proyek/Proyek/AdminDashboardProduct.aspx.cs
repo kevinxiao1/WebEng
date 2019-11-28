@@ -16,7 +16,7 @@ namespace Proyek
 
         //string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
 
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MSI-PC\Downloads\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Herlambang
+        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Herlambang
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace Proyek
                 ddl_active.Items.Add("Yes");
                 ddl_active.Items.Add("No");
                 Image1.ImageUrl = null;
-                
+                getdata();
             }
 
 

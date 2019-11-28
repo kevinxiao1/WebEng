@@ -12,7 +12,7 @@ namespace Proyek
     public partial class ProductDetail : System.Web.UI.Page
     {
         //string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MSI-PC\Downloads\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
+        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         public void TestConn()
         {
