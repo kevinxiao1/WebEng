@@ -12,15 +12,13 @@ namespace Proyek
     public partial class AdminDashboard : System.Web.UI.Page
     {
         //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Project\WebEng\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
-
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
-
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Herlambang
+        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Herlambang
         SqlConnection conn;
+        public AdminDashboardCategory ad = new AdminDashboardCategory();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             conn = new SqlConnection(myconn);
 
             if(!IsPostBack)
@@ -33,9 +31,6 @@ namespace Proyek
                 Image1.ImageUrl = null;
                 getdata();
             }
-
-
-
             //if (IsPostBack && FileUpload1.PostedFile != null)
             //{
             //    if (FileUpload1.PostedFile.FileName.Length > 0)
@@ -45,138 +40,125 @@ namespace Proyek
             //        Image1.ImageUrl = "~/" + FileUpload1.PostedFile.FileName;
             //    }
             //}
-
-
-
-
-
-
             getdata();
-
-
         }
-
 
         void getdata()
         {
-            conn.Open();
+            try
+            {
+                ad.TestConn();
+                //FORMAT(1234, 'C', 'fr-FR')
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT DISTINCT p.ProductID ,p.Name,c.CategoryName, FORMAT(CONVERT(INT, p.SellPrice),'C','id-ID') AS SellPrice ,b.BrandName,p.Specs,pr.PromoName,p.Status from dbo.Product p,dbo.Brand b,dbo.Promo pr,dbo.Category c where p.CategoryID=c.CategoryID and b.BrandID=p.BrandID and pr.PromoID=p.PromoID", conn);
+                // SqlDataAdapter sq = new SqlDataAdapter("SELECT * from dbo.Product", conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+                dt.Columns.Add("Action");
 
-            //FORMAT(1234, 'C', 'fr-FR')
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT DISTINCT p.ProductID ,p.Name,c.CategoryName, FORMAT(CONVERT(INT, p.SellPrice),'C','id-ID') AS SellPrice ,b.BrandName,p.Specs,pr.PromoName,p.Status from dbo.Product p,dbo.Brand b,dbo.Promo pr,dbo.Category c where p.CategoryID=c.CategoryID and b.BrandID=p.BrandID and pr.PromoID=p.PromoID", conn);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
 
-            // SqlDataAdapter sq = new SqlDataAdapter("SELECT * from dbo.Product", conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-            dt.Columns.Add("Action");
-
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-
-            conn.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
         }
-            
-
 
         void isikat()
         {
-            conn.Open();
-            
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Category", conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-            
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-               
-                 ddl_category.Items.Add(dt.Rows[i]["CategoryID"].ToString() + "-" + dt.Rows[i]["CategoryName"].ToString());
-                
-               
-
-
+                ad.TestConn();
+            
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Category", conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+            
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                     ddl_category.Items.Add(dt.Rows[i]["CategoryID"].ToString() + "-" + dt.Rows[i]["CategoryName"].ToString());
+                }
+                conn.Close();
             }
-
-
-            conn.Close();
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
         }
-
 
         void isibrand()
         {
-            conn.Open();
-
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Brand", conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
+                ad.TestConn();
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Brand", conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
 
-                ddl_brand.Items.Add(dt.Rows[i]["BrandID"].ToString() + "-" + dt.Rows[i]["BrandName"].ToString());
-
-
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ddl_brand.Items.Add(dt.Rows[i]["BrandID"].ToString() + "-" + dt.Rows[i]["BrandName"].ToString());
+                }
+                conn.Close();
             }
-
-
-            conn.Close();
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
         }
 
         void isipromo()
         {
-            conn.Open();
-
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-
-            ddl_promo.Items.Add("None");
-            promo_hidden.Items.Add("PR000");
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                if (dt.Rows[i]["PromoID"].ToString() != "PR000")
+                ad.TestConn();
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+                ddl_promo.Items.Add("None");
+                promo_hidden.Items.Add("PR000");
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ddl_promo.Items.Add(dt.Rows[i]["PromoName"].ToString() + "-" + dt.Rows[i]["PromoType"].ToString() + "-" + dt.Rows[i]["PromoCount"].ToString());
-
-
-                    promo_hidden.Items.Add(dt.Rows[i]["PromoID"].ToString());
+                    if (dt.Rows[i]["PromoID"].ToString() != "PR000")
+                    {
+                        ddl_promo.Items.Add(dt.Rows[i]["PromoName"].ToString() + "-" + dt.Rows[i]["PromoType"].ToString() + "-" + dt.Rows[i]["PromoCount"].ToString());
+                        promo_hidden.Items.Add(dt.Rows[i]["PromoID"].ToString());
+                    }
                 }
-
-                   
-
+                conn.Close();
             }
-
-
-            conn.Close();
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
         }
 
         bool cekProductName(string name)
         {
-            conn.Open();
-
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Product", conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-            
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-
-                if(dt.Rows[i]["Name"].ToString() == name)
+                ad.TestConn();
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Product", conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    conn.Close();
-                    return (true);
-                    
+                    if(dt.Rows[i]["Name"].ToString() == name)
+                    {
+                        conn.Close();
+                        return (true);
+                    }
                 }
-                
-
+                conn.Close();
             }
-
-
-            conn.Close();
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
             return (false);
         }
-
-
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -237,14 +219,6 @@ namespace Proyek
                         }
                         
                     }
-
-
-
-
-
-
-
-
                     Image1.ImageUrl = null;
 
                     Session["var"] = null;
@@ -257,21 +231,15 @@ namespace Proyek
                     ddl_category.SelectedIndex = 0;
                     ddl_promo.SelectedIndex = 0;
                     promo_hidden.SelectedIndex = 0;
-
-
                     getdata();
                 }
-
-               
             }
-            
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.DataItem != null)
             {
-
                 Button lb = new Button();
                 lb.Text = "Edit";
                 lb.CommandName = "editime";

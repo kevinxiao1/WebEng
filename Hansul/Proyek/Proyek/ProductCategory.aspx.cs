@@ -11,10 +11,10 @@ namespace Proyek
 {
     public partial class ProductCategory : System.Web.UI.Page
     {
+        public AdminDashboardCategory ad = new AdminDashboardCategory();
        // string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
-
-
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace Proyek
             {
                 cmd = "SELECT Product.ProductID, Pict.PictData as Gambar, Product.Name as NamaProduk, Product.SellPrice as Harga from dbo.Product Product,dbo.Pict Pict, dbo.Category Cat WHERE Product.Name = Pict.ProductId and Cat.CategoryID = Product.CategoryID and Cat.CategoryName = '" + search+ "'";
             }
-            conn.Open();
+            ad.TestConn();
             SqlDataAdapter sq = new SqlDataAdapter(cmd, conn);
             DataTable dt = new DataTable();
             sq.Fill(dt);
@@ -68,7 +68,7 @@ namespace Proyek
 
         void getdata()
         {
-            conn.Open();
+            ad.TestConn();
 
             //FORMAT(1234, 'C', 'fr-FR')
             SqlDataAdapter sq = new SqlDataAdapter("SELECT * from dbo.Category", conn);
