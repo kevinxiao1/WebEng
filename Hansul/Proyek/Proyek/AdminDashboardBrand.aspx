@@ -34,8 +34,9 @@
     <form id="form1" runat="server">
 
     <!--================Category Product Area =================-->
-    <section class="cat_product_area section_padding">
-        <div class="container">
+    <%--<section class="cat_product_area section_padding">--%>
+    <section>
+        <%--<div class="container">--%>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
@@ -43,13 +44,14 @@
                             <div class="l_w_title">
                                 <h3>Master</h3>
                             </div>
+                            <%--Side Bar--%>
                             <div class="widgets_inner">
                                  <ul class="list">
                                     <li>
                                         <a href="AdminDashboardProduct.aspx">Product</a>
                                     </li>
                                     <li>
-                                        <a href="#">Category</a>
+                                        <a href="AdminDashboardCategory">Category</a>
                                     </li>
                                     <li>
                                         <a href="AdminDashboardBrand.aspx">Brand</a>
@@ -65,6 +67,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            <%--End of Side bar--%>
                         </aside>
                     </div>
                 </div>
@@ -102,7 +105,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <%--</div>--%>
     </section>
     <!--================End Category Product Area =================-->
 
