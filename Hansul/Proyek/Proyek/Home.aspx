@@ -153,7 +153,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
-                        <h3>Digital Camera</h3>
+                        <h3>Mirrorless</h3>
                         <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="img/feature/fitur2.png" alt=""/>
                     </div>

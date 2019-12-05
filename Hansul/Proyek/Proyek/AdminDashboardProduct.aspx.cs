@@ -26,7 +26,7 @@ namespace Proyek
                 isikat();
                 isibrand();
                 isipromo();
-                ddl_active.Items.Add("Yes");
+                    ddl_active.Items.Add("Yes");
                 ddl_active.Items.Add("No");
                 Image1.ImageUrl = null;
                 getdata();
