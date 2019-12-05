@@ -11,9 +11,13 @@ namespace Proyek
 {
     public partial class ProductCategory : System.Web.UI.Page
     {
-        public AdminDashboardCategory ad = new AdminDashboardCategory();
-       // string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+
+        //public AdminDashboardCategory ad = new AdminDashboardCategory();
+
+
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,7 +27,14 @@ namespace Proyek
             getdata();
             getProduct();
         }
-
+        public void TestConn()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+        }
         void getProduct()
         {
             string cmd = "SELECT dbo.Product.ProductID as ID, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga from dbo.Product";
@@ -33,7 +44,7 @@ namespace Proyek
             {
                 cmd = "SELECT Product.ProductID, Pict.PictData as Gambar, Product.Name as NamaProduk, Product.SellPrice as Harga from dbo.Product Product,dbo.Pict Pict, dbo.Category Cat WHERE Product.Name = Pict.ProductId and Cat.CategoryID = Product.CategoryID and Cat.CategoryName = '" + search+ "'";
             }
-            ad.TestConn();
+            TestConn();
             SqlDataAdapter sq = new SqlDataAdapter(cmd, conn);
             DataTable dt = new DataTable();
             sq.Fill(dt);
@@ -68,7 +79,7 @@ namespace Proyek
 
         void getdata()
         {
-            ad.TestConn();
+            TestConn();
 
             //FORMAT(1234, 'C', 'fr-FR')
             SqlDataAdapter sq = new SqlDataAdapter("SELECT * from dbo.Category", conn);
