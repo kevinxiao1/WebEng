@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Proyek
-{
-
-
-    public partial class Register
-    {
-
+namespace Proyek {
+    
+    
+    public partial class Register {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// txtusername control.
         /// </summary>
@@ -31,7 +29,16 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtusername;
-
+        
+        /// <summary>
+        /// txtname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtname;
+        
         /// <summary>
         /// txtpassword control.
         /// </summary>
@@ -40,7 +47,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
-
+        
         /// <summary>
         /// txtCPassword control.
         /// </summary>
@@ -49,7 +56,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtCPassword;
-
+        
         /// <summary>
         /// txtAddress control.
         /// </summary>
@@ -57,8 +64,8 @@ namespace Proyek
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtAddress;
-
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAddress;
+        
         /// <summary>
         /// txtPhone control.
         /// </summary>
@@ -66,6 +73,6 @@ namespace Proyek
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPhone;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPhone;
     }
 }

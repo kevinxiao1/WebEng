@@ -11,12 +11,21 @@ namespace Proyek
 {
     public partial class AdminDashboard : System.Web.UI.Page
     {
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
        // String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Downloads\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security = True";//punya Hansel
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Herlambang
         SqlConnection conn;
-        public AdminDashboardCategory ad = new AdminDashboardCategory();
+        //public AdminDashboardCategory ad = new AdminDashboardCategory();
+        public void TestConn()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
@@ -47,7 +56,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
                 //FORMAT(1234, 'C', 'fr-FR')
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT DISTINCT p.ProductID ,p.Name,c.CategoryName, FORMAT(CONVERT(INT, p.SellPrice),'C','id-ID') AS SellPrice ,b.BrandName,p.Specs,pr.PromoName,p.Status from dbo.Product p,dbo.Brand b,dbo.Promo pr,dbo.Category c where p.CategoryID=c.CategoryID and b.BrandID=p.BrandID and pr.PromoID=p.PromoID", conn);
                 // SqlDataAdapter sq = new SqlDataAdapter("SELECT * from dbo.Product", conn);
@@ -70,7 +79,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
             
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Category", conn);
                 DataTable dt = new DataTable();
@@ -92,7 +101,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Brand", conn);
                 DataTable dt = new DataTable();
                 sq.Fill(dt);
@@ -113,7 +122,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
                 DataTable dt = new DataTable();
                 sq.Fill(dt);
@@ -139,7 +148,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Product", conn);
                 DataTable dt = new DataTable();
                 sq.Fill(dt);
