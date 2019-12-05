@@ -11,16 +11,11 @@ namespace Proyek
 {
     public partial class AdminDashboardPromo : System.Web.UI.Page
     {
-      String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
-       // String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         SqlConnection conn;
-       // public AdminDashboardCategory ad = new AdminDashboardCategory();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            conn = new SqlConnection(myconn);
-            getdata();
-        }
+        //  public AdminDashboardCategory ad = new AdminDashboardCategory();
         public void TestConn()
         {
             if (conn.State == ConnectionState.Open)
@@ -28,6 +23,11 @@ namespace Proyek
                 conn.Close();
             }
             conn.Open();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(myconn);
+            getdata();
         }
 
         void getdata()
@@ -132,12 +132,14 @@ namespace Proyek
                 Button lb = new Button();
                 lb.Text = "Edit";
                 lb.CommandName = "editime";
+                lb.CssClass = "btn-info";
                 e.Row.Cells[4].Controls.Add(lb);
                 lb.Click += Lb_Click; ;
 
                 Button lb2 = new Button();
                 lb2.Text = "Delete";
                 lb2.CommandName = "delete";
+                lb2.CssClass = "btn-danger";
                 e.Row.Cells[4].Controls.Add(lb2);
                 lb2.Click += Lb2_Click; ;
                 lb2.OnClientClick = "return confirm('Do you want Delete?')";
