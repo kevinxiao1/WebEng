@@ -86,14 +86,37 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-cart-plus"></i>
                                 </a>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <div class="single_product">
-    
+                                        
                                     </div>
-                                </div> -->
+                                </div> --%>
+                                
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                                    data-toggle="dropdown">
+                                    <asp:Label ID="lbWesLogin" runat="server" Text="Label"></asp:Label>
+                                </a>
+                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+                                        <asp:Label ID="lbTokek" runat="server" Text="Label"></asp:Label>
+                                        <%--<a class="dropdown-item" href="ProductCategory.aspx"> shop category</a>
+                                        <a class="dropdown-item" href="single-product.html">product details</a>--%>
+                                    </div>
+                                </div> 
                                 
                             </div>
                         </div>
+                        <%--<div>
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Shop
+                                    </a>
+                                   
+                                </li>
+                        </div>--%>
                     </nav>
                 </div>
             </div>
