@@ -15,37 +15,40 @@ namespace Proyek
         String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         SqlConnection conn;
+        public AdminDashboardCategory ad = new AdminDashboardCategory();
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
-
             getdata();
         }
 
         void getdata()
         {
-            conn.Open();
-            SqlDataAdapter sq = new SqlDataAdapter("SELECT * from promo where PromoID<>'PR000'", conn);
+            try
+            {
+                ad.TestConn();
+                SqlDataAdapter sq = new SqlDataAdapter("SELECT * from promo where PromoID<>'PR000'", conn);
             
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-            dt.Columns.Add("Action");
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+                dt.Columns.Add("Action");
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-
-            conn.Close();
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
         }
 
         bool cekPromoName(string name)
         {
-            conn.Open();
-
+            ad.TestConn();
             SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
             DataTable dt = new DataTable();
             sq.Fill(dt);
-
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
@@ -53,63 +56,44 @@ namespace Proyek
                 {
                     conn.Close();
                     return (true);
-
                 }
-
-
             }
-
-
             conn.Close();
             return (false);
         }
 
         string getLastIndex(string table, string fieldname, string inisial)
         {
-
+            string kode = "";
             try
             {
-                conn.Open();
-            }
-            catch (Exception)
-            {
+                ad.TestConn();
+                string q = "select max(substring(" + fieldname + ",3,3)) as yes from " + table;
+                SqlDataAdapter sq = new SqlDataAdapter(q, conn);
+                DataTable dt = new DataTable();
+                sq.Fill(dt);
+                int norut = 0;
 
-            }
-
-
-            string q = "select max(substring(" + fieldname + ",3,3)) as yes from " + table;
-
-
-            SqlDataAdapter sq = new SqlDataAdapter(q, conn);
-            DataTable dt = new DataTable();
-            sq.Fill(dt);
-
-            int norut = 0;
-            string kode = "";
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                try
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    norut = int.Parse((dt.Rows[i]["yes"].ToString()));
-                }
-                catch (Exception)
-                {
-                    norut = 0;
-                }
+                    try
+                    {
+                        norut = int.Parse((dt.Rows[i]["yes"].ToString()));
+                    }
+                    catch (Exception)
+                    {
+                        norut = 0;
+                    }
 
+                }
+                norut++;
+                kode = inisial + (norut + "").PadLeft(3, '0');
             }
-
-            norut++;
-
-            kode = inisial + (norut + "").PadLeft(3, '0');
-
-
-
-
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message.ToString());
+            }
             return (kode);
-
-
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
