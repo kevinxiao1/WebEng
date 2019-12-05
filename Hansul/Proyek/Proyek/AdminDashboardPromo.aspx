@@ -33,8 +33,8 @@
     <form id="form1" runat="server">
 
     <!--================Category Product Area =================-->
-    <section class="cat_product_area section_padding">
-        <div class="container">
+    <section>
+        <%--<div class="container">--%>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
@@ -48,7 +48,7 @@
                                         <a href="AdminDashboardProduct.aspx">Product</a>
                                     </li>
                                     <li>
-                                        <a href="#">Category</a>
+                                        <a href="AdminDashboardCategory.aspx">Category</a>
                                     </li>
                                     <li>
                                         <a href="AdminDashboardBrand.aspx">Brand</a>
@@ -57,7 +57,7 @@
                                         <a href="#">Customer</a>
                                     </li>
                                     <li>
-                                        <a href="AdminDashboardPromo.aspx">Promo</a>
+                                        <a href="#">Promo</a>
                                     </li>
                                     <li>
                                         <a href="Login.aspx">Log Out</a>
@@ -69,10 +69,8 @@
                 </div>
                 <div class="col-lg-9">
                     <div>
-
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <br />
                         <br />
                         <br />
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -86,7 +84,7 @@
                         <br />
                         <br />
                                 Type<br />
-                                <asp:DropDownList ID="ddl_type" runat="server">
+                                <asp:DropDownList class="dropdown-menu" ID="ddl_type" runat="server">
                                     <asp:ListItem>%</asp:ListItem>
                                     <asp:ListItem>Rp</asp:ListItem>
                                     <asp:ListItem></asp:ListItem>
@@ -98,8 +96,8 @@
                         <br />
                         <br />
                                 &nbsp;<br />
-                                <asp:Button ID="btn_insert" runat="server" OnClick="btn_insert_Click" Text="Insert" />
-                                <asp:Button ID="btn_edit" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
+                                <asp:Button ID="btn_insert" class="btn-success" runat="server" OnClick="btn_insert_Click" Text="Insert" />
+                                <asp:Button ID="btn_edit" class="btn-info" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
                         <br />
                         <br />
                                 <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" OnRowDeleting="GridView1_RowDeleting1">
@@ -112,7 +110,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <%--</div>--%>
     </section>
     <!--================End Category Product Area =================-->
 

@@ -20,7 +20,6 @@ namespace Proyek
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
-
             getdata();
         }
 
@@ -187,12 +186,14 @@ namespace Proyek
                 lb.CommandName = "editime";
                 e.Row.Cells[2].Controls.Add(lb);
                 lb.Click += Lb_Click;
+                lb.CssClass = "btn-info";
 
                 Button lb2 = new Button();
                 lb2.Text = "Delete";
                 lb2.CommandName = "delete";
                 e.Row.Cells[2].Controls.Add(lb2);
                 lb2.Click += Lb2_Click;
+                lb2.CssClass = "btn-danger";
                 lb2.OnClientClick = "return confirm('Do you want Delete?')";
 
 

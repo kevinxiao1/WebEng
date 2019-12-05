@@ -17,7 +17,7 @@ namespace Proyek
         {
             if (txtusername.Value == "admin" && txtpassword.Value == "admin")
             {
-                Response.Redirect("AdminDashboard.aspx");
+                Response.Redirect("AdminDashboardBrand.aspx");
             }
 
         }

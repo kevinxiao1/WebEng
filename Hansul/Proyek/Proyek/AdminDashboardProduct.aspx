@@ -34,8 +34,8 @@
     <form id="form1" runat="server">
 
     <!--================Category Product Area =================-->
-    <section class="cat_product_area section_padding">
-        <div class="container">
+    <section>
+        <%--<div class="container">--%>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
@@ -46,10 +46,10 @@
                             <div class="widgets_inner">
                                 <ul class="list">
                                     <li>
-                                        <a href="AdminDashboardProduct.aspx">Product</a>
+                                        <a href="#">Product</a>
                                     </li>
                                     <li>
-                                        <a href="#">Category</a>
+                                        <a href="AdminDashboardCategory.aspx">Category</a>
                                     </li>
                                     <li>
                                         <a href="AdminDashboardBrand.aspx">Brand</a>
@@ -70,11 +70,8 @@
                 </div>
                 <div class="col-lg-9">
                     <div>
-
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <br />
-                        <br />
                         <br />
                         <br />
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -103,21 +100,22 @@
                                 <asp:DropDownList ID="ddl_brand" runat="server">
                                 </asp:DropDownList>
                                 <br />
-                                <asp:Label ID="Label5" runat="server" Text="Specs "></asp:Label>
                                 <br />
+                                <asp:Label ID="Label5" runat="server" Text="Specs "></asp:Label>
+                                <br />   <br />
                                 <asp:TextBox ID="tb_spec" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <br />
                                 <asp:Label ID="Label6" runat="server" Text="Promo "></asp:Label>
                                 <br />
-                                <asp:DropDownList ID="ddl_promo" runat="server">
+                                <asp:DropDownList class="dropdown-menu" ID="ddl_promo" runat="server">
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="promo_hidden" runat="server" Visible="False">
+                                <asp:DropDownList class="dropdown-menu" ID="promo_hidden" runat="server" Visible="False">
                                 </asp:DropDownList>
                                 <br />
                                 <br />
                                 <asp:Label ID="Label7" runat="server" Text="Active "></asp:Label>
                                 <br />
-                                <asp:DropDownList ID="ddl_active" runat="server">
+                                <asp:DropDownList class="dropdown-menu" ID="ddl_active" runat="server">
                                 </asp:DropDownList>
                                 <br />
                                 <br />
@@ -128,12 +126,12 @@
                         <br />
                         File Foto dibawah 1mb ya..<br />
                         <asp:FileUpload ID="FileUpload1" runat="server" />
-                        <asp:Button ID="btn_insertpict" runat="server" OnClick="btn_insertpict_Click" Text="Ok" />
+                        <asp:Button ID="btn_insertpict" class="btn-success" runat="server" OnClick="btn_insertpict_Click" Text="Ok" />
                         <br />
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
                                 <br />
-                                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Hapus Foto " />
+                                <asp:Button ID="Button1" class="btn-danger" runat="server" OnClick="Button1_Click" Text="Hapus Foto " />
                                 <br />
                                 <asp:Image ID="Image1" runat="server" Height="121px" Width="149px" />
                                 <asp:Label ID="lbl_idx_foto" runat="server" Text="0"></asp:Label>
@@ -145,15 +143,15 @@
                                 <br />
                                 <br />
                                 <br />
-                                <asp:Button ID="btn_next" runat="server" OnClick="btn_next_Click" Text="Next" />
-                                <asp:Button ID="btn_previous" runat="server" OnClick="btn_previous_Click" Text="Previous" />
+                                <asp:Button ID="btn_next" class="btn-info" runat="server" OnClick="btn_next_Click" Text="Next" />
+                                <asp:Button ID="btn_previous" class="btn-info" runat="server" OnClick="btn_previous_Click" Text="Previous" />
                                 <br />
                                 <br />
                                 <br />
                                 <br />
                                 <br />
-                                <asp:Button ID="btn_insert" runat="server" OnClick="btn_insert_Click" Text="Insert" />
-                                <asp:Button ID="btn_edit" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
+                                <asp:Button ID="btn_insert" class="btn-success" runat="server" OnClick="btn_insert_Click" Text="Insert" />
+                                <asp:Button ID="btn_edit" class="btn-info" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
                                 <br />
                                 <br />
                                 <br />
@@ -172,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <%--</div>--%>
     </section>
     <!--================End Category Product Area =================-->
 

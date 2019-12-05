@@ -17,7 +17,7 @@ namespace Proyek
         String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB\Projek FAI\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Will
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
-        SqlConnection conn;
+        SqlConnection conn ;
 
         public void TestConn()
         {
@@ -156,12 +156,14 @@ namespace Proyek
                 Button lb = new Button();
                 lb.Text = "Edit";
                 lb.CommandName = "editime";
+                lb.CssClass = "btn-info";
                 e.Row.Cells[2].Controls.Add(lb);
                 lb.Click += Lb_Click;
 
                 Button lb2 = new Button();
                 lb2.Text = "Delete";
                 lb2.CommandName = "delete";
+                lb2.CssClass = "btn-danger";
                 e.Row.Cells[2].Controls.Add(lb2);
                 lb2.Click += Lb2_Click;
                 lb2.OnClientClick = "return confirm('Do you want Delete?')";
