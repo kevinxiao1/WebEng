@@ -70,11 +70,42 @@ namespace Proyek
             }
             conn.Close();
         }
+        public void SignOut()
+        {
+            Session["siapa"] = null;
+            Response.Redirect("home.aspx");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
 
             getProduct();
+
+            if (!IsPostBack)
+            {
+                try
+                {
+                    string logout = Request.QueryString["sgout"];
+                    if (logout == "true")
+                    {
+                        SignOut();
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+                if (Session["siapa"] == null)
+                {
+                    lbWesLogin.Text = "Welcome, guest";
+                    lbTokek.Text = "<a class='dropdown-item' href='login.aspx'>Sign In</a>" + "<a class='dropdown-item' href='register.aspx'>Sign Up</a>";
+                }
+                else
+                {
+                    lbWesLogin.Text = "Welcome, " + (string)Session["siapa"];
+                    lbTokek.Text = "<a class='dropdown-item' href='#'>Edit Profile</a>" + "<a class='dropdown-item' href='home.aspx?sgout=true'>Logout</a>";
+                }
+            }
         }
     }
 }

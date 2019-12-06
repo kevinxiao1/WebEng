@@ -13,6 +13,24 @@ namespace Proyek {
     public partial class ProductDetail {
         
         /// <summary>
+        /// lbWesLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbWesLogin;
+        
+        /// <summary>
+        /// lbTokek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTokek;
+        
+        /// <summary>
         /// LbGambar control.
         /// </summary>
         /// <remarks>

@@ -20,12 +20,44 @@ namespace Proyek
         //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
+        public void SignOut()
+        {
+            Session["siapa"] = null;
+            Response.Redirect("home.aspx");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
 
             getdata();
             getProduct();
+
+
+            if (!IsPostBack)
+            {
+                try
+                {
+                    string logout = Request.QueryString["sgout"];
+                    if (logout == "true")
+                    {
+                        SignOut();
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+                if (Session["siapa"] == null)
+                {
+                    lbWesLogin.Text = "Welcome, guest";
+                    lbTokek.Text = "<a class='dropdown-item' href='login.aspx'>Sign In</a>" + "<a class='dropdown-item' href='register.aspx'>Sign Up</a>";
+                }
+                else
+                {
+                    lbWesLogin.Text = "Welcome, " + (string)Session["siapa"];
+                    lbTokek.Text = "<a class='dropdown-item' href='#'>Edit Profile</a>" + "<a class='dropdown-item' href='home.aspx?sgout=true'>Logout</a>";
+                }
+            }
         }
         public void TestConn()
         {
