@@ -52,6 +52,10 @@
                                         placeholder="Username"/>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
+                                    <input type="text" runat="server" class="form-control" id="txtname" name="name" value=""
+                                        placeholder="Full Name"/>
+                                </div>
+                                <div class="col-md-12 form-group p_star">
                                     <input type="password" runat="server" class="form-control" id="txtpassword" name="password" value=""
                                         placeholder="Password"/>
                                 </div>
@@ -60,17 +64,15 @@
                                         placeholder="Confirm Password"/>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" runat="server" class="form-control" id="txtAddress" name="address" value=""
+                                    <input type="text" runat="server" class="form-control" id="txtAddress" name="address" value=""
                                         placeholder="Address"/>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" runat="server" class="form-control" id="txtPhone" name="phone" value=""
+                                    <input type="text" runat="server" class="form-control" id="txtPhone" name="phone" value=""
                                         placeholder="Phone Number"/>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" value="submit" class="btn_3">
-                                        Register
-                                    </button>
+                                    <asp:Button Text="Register" OnClick="btnLogin" runat="server" type="submit" value="submit" class="btn_3"/>
                                 </div>
                             </form>
                         </div>
