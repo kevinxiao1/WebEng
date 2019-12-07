@@ -44,6 +44,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_form">
                         <div class="login_part_form_iner">

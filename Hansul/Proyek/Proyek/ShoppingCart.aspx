@@ -60,6 +60,7 @@
                                 <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     pages
+                                    
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                     <a class="dropdown-item" href="login.html"> login</a>
@@ -152,32 +153,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-              <tr>
+               <asp:Label ID="lbIsi" runat="server" Text="Label"></asp:Label>
+                
+<%--              <tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
@@ -236,8 +214,8 @@
                 <td>
                   <h5>$720.00</h5>
                 </td>
-              </tr>
-              <tr class="bottom_button">
+              </tr>--%>
+             <%-- <tr class="bottom_button">
                 <td>
                   <a class="btn_1" href="#">Update Cart</a>
                 </td>
@@ -258,8 +236,8 @@
                 <td>
                   <h5>$2160.00</h5>
                 </td>
-              </tr>
-              <tr class="shipping_area">
+              </tr>--%>
+              <%--<tr class="shipping_area">
                 <td></td>
                 <td></td>
                 <td>
@@ -299,7 +277,7 @@
                     <a class="btn_1" href="#">Update Details</a>
                   </div>
                 </td>
-              </tr>
+              </tr>--%>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">

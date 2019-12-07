@@ -91,19 +91,18 @@
                     </div>
                     <div class="hearer_icon d-flex">
                         <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                        <a href=""><i class="ti-heart"></i></a>
-                        <div class="dropdown cart">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cart-plus"></i>
+                       <a class="btn-3" href="ShoppingCart.aspx">
+                               <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   
+                                </a>--%>
+                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+                                        
+                                    </div>
+                                </div> --%>
+                                 <i class="fas fa-cart-plus"></i>
                             </a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div class="single_product">
-
-                                </div>
-                            </div> -->
-                            
-                        </div>
 
                          <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
@@ -153,7 +152,7 @@
   </section>
   <!-- breadcrumb start-->
   <!--================End Home Banner Area =================-->
-
+    <form id="form1" runat="server">
   <!--================Single Product Area =================-->
   <%--<div class="product_image_area section_padding">
     <div class="container">
@@ -184,17 +183,24 @@
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
+                 <%--// class="form-control"--%>
+                <input class="input-number" type="text" value="1" min="0" max="10" id="qty" runat="server">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="#" class="btn_3">add to cart</a>
-              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+               <%--  <asp:Button ID="btn_edit" class="btn-info" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" --%>
+                
+                <asp:Button ID="btn_insert" class="btn_3" runat="server" Text="Insert" OnClick="btn_insert_Click" />
+
+
+              <%--<a href="#" class="btn_3">add to cart</a>--%>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+    </form>
   <!--================End Single Product Area =================-->
 
   <!--================Product Description Area =================-->
