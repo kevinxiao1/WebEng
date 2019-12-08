@@ -35,10 +35,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> Lapak Kamera</a>
+                        <a class="navbar-brand" href="home.aspx"> <img src="img/Logo/logo.png" alt=""/> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation" >
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="menu_icon"><i class="fas fa-bars"></i></span>
                         </button>
 
@@ -47,67 +47,24 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="home.aspx">Home</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Shop
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.html"> shop category</a>
-                                        <a class="dropdown-item" href="single-product.html">product details</a>
-                                        
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        pages
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="Login.aspx"> login</a>
-                                        <a class="dropdown-item" href="tracking.html">tracking</a>
-                                        <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                        <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                        <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                        <a class="dropdown-item" href="elements.html">elements</a>
-                                    </div>
-                                </li>
-                                
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="ProductCategory.aspx">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">About Us</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                         <%--  <a href=""><i class="ti-heart"></i></a>--%>
-                          <%--  <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            <div class="dropdown cart" href="ShoppingCart.aspx">
+                                <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus"></i>
-                                </a>--%>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-    
-                                    </div>
-                                </div> -->
-                              <%--  
-                            </div>--%>
-
-                            <a class="btn-3" href="ShoppingCart.aspx">
-                               <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   
-                                </a>--%>
-                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-                                        
-                                    </div>
-                                </div> --%>
-                                 <i class="fas fa-cart-plus"></i>
-                            </a>
-
-                             <div class="dropdown">
+                                    <i class="fas fa-cart-plus" href="ShoppingCart.aspx"></i>
+                                </a>
+                                
+                            </div>
+                            <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown">
                                     <asp:Label ID="lbWesLogin" runat="server" Text="Label"></asp:Label>
@@ -122,6 +79,15 @@
                                 
                             </div>
                         </div>
+                        <%--<div>
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Shop
+                                    </a>
+                                   
+                                </li>
+                        </div>--%>
                     </nav>
                 </div>
             </div>
@@ -130,7 +96,7 @@
             <div class="container ">
                 <div class="d-flex justify-content-between search-inner" >
                     <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here" />
-                    <asp:Button runat="server" type="submit" class="btn"></asp:Button>
+                    <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
                     <span class="ti-close" id="close_search" title="Close Search"></span>
                 </div>
             </div>
@@ -139,22 +105,6 @@
     <!-- Header part end-->
 
          <!--================Home Banner Area =================-->
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="breadcrumb_iner">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Shop Category</h2>
-                            <p>Home <span>-</span> Shop Category</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
 
     <!--================Category Product Area =================-->
     <section class="cat_product_area section_padding">

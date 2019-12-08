@@ -35,10 +35,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> Lapak Kamera</a>
+                        <a class="navbar-brand" href="home.aspx"> <img src="img/Logo/logo.png" alt=""/> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation" >
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="menu_icon"><i class="fas fa-bars"></i></span>
                         </button>
 
@@ -47,52 +47,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="home.aspx">Home</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Shop
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="ProductCategory.aspx"> shop category</a>
-                                        <a class="dropdown-item" href="single-product.html">product details</a>
-                                        
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        pages
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="Login.aspx"> login</a>
-                                        <a class="dropdown-item" href="tracking.html">tracking</a>
-                                        <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                        <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                        <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                        <a class="dropdown-item" href="elements.html">elements</a>
-                                    </div>
-                                </li>
-                                
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="ProductCategory.aspx">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">About Us</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                         <%--  <a href=""><i class="ti-heart"></i></a>--%>
-                            <a class="btn-3" href="ShoppingCart.aspx">
-                               <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
+                            <div class="dropdown cart" href="ShoppingCart.aspx">
+                                <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   
-                                </a>--%>
-                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-                                        
-                                    </div>
-                                </div> --%>
-                                 <i class="fas fa-cart-plus"></i>
-                            </a>
+                                    <i class="fas fa-cart-plus" href="ShoppingCart.aspx"></i>
+                                </a>
+                                
+                            </div>
                             <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown">
@@ -176,16 +147,16 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
-                        <h3>Digital Camera</h3>
+                        <h3>Mirrorless</h3>
                         <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/fitur2.png" alt=""/>
+                        <img src="img/feature/banner1.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <h3>Action Camera</h3>
                         <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/fitur3.png" alt=""/>
+                        <img src="img/feature/banner2.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -199,7 +170,7 @@
                     <div class="single_feature_post_text">
                         <h3>Audio and Accessories</h3>
                         <a href="ProductCategory.aspx?search=Merc" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/fitur4.png" alt=""/>
+                        <img src="img/feature/banner4.png" alt=""/>
                     </div>
                 </div>
             </div>

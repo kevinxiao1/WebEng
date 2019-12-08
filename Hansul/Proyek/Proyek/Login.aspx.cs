@@ -13,7 +13,9 @@ namespace Proyek
     {
         // String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
 
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
+
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya HANSUL
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
@@ -59,6 +61,14 @@ namespace Proyek
                 Response.Write(ex.Message.ToString());
                 return false;
             }
+        }
+        protected void btnSearch(object sender, EventArgs e)
+        {
+
+            Response.Write("<script> alert('" + search_input.Value + "')</script>");
+
+            //btn_search.Text = "as";
+            //  Response.Write("asa");
         }
         protected void btnLogin(object sender, EventArgs e)
         {

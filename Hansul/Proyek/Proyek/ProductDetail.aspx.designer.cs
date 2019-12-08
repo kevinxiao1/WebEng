@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Proyek {
-    
-    
-    public partial class ProductDetail {
-        
+namespace Proyek
+{
+
+
+    public partial class ProductDetail
+    {
+
         /// <summary>
         /// lbWesLogin control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Proyek {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbWesLogin;
-        
+
         /// <summary>
         /// lbTokek control.
         /// </summary>
@@ -29,16 +31,16 @@ namespace Proyek {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbTokek;
-        
+
         /// <summary>
-        /// form1 control.
+        /// search_input control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_input;
+
         /// <summary>
         /// LbGambar control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Proyek {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LbGambar;
-        
+
         /// <summary>
         /// DescProduct control.
         /// </summary>
@@ -56,23 +58,5 @@ namespace Proyek {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DescProduct;
-        
-        /// <summary>
-        /// qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText qty;
-        
-        /// <summary>
-        /// btn_insert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_insert;
     }
 }

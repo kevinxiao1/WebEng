@@ -11,19 +11,11 @@ namespace Proyek
 {
     public partial class AdminDashboardPromo : System.Web.UI.Page
     {
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
-       // String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
-        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         SqlConnection conn;
-        //  public AdminDashboardCategory ad = new AdminDashboardCategory();
-        public void TestConn()
-        {
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-            }
-            conn.Open();
-        }
+        public AdminDashboardCategory ad = new AdminDashboardCategory();
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
@@ -34,7 +26,7 @@ namespace Proyek
         {
             try
             {
-                TestConn();
+                ad.TestConn();
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * from promo where PromoID<>'PR000'", conn);
             
                 DataTable dt = new DataTable();
@@ -53,7 +45,7 @@ namespace Proyek
 
         bool cekPromoName(string name)
         {
-            TestConn();
+            ad.TestConn();
             SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
             DataTable dt = new DataTable();
             sq.Fill(dt);
@@ -75,7 +67,7 @@ namespace Proyek
             string kode = "";
             try
             {
-                TestConn();
+                ad.TestConn();
                 string q = "select max(substring(" + fieldname + ",3,3)) as yes from " + table;
                 SqlDataAdapter sq = new SqlDataAdapter(q, conn);
                 DataTable dt = new DataTable();
@@ -132,14 +124,12 @@ namespace Proyek
                 Button lb = new Button();
                 lb.Text = "Edit";
                 lb.CommandName = "editime";
-                lb.CssClass = "btn-info";
                 e.Row.Cells[4].Controls.Add(lb);
                 lb.Click += Lb_Click; ;
 
                 Button lb2 = new Button();
                 lb2.Text = "Delete";
                 lb2.CommandName = "delete";
-                lb2.CssClass = "btn-danger";
                 e.Row.Cells[4].Controls.Add(lb2);
                 lb2.Click += Lb2_Click; ;
                 lb2.OnClientClick = "return confirm('Do you want Delete?')";
