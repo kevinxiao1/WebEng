@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Proyek
-{
-
-
-    public partial class Home
-    {
-
+namespace Proyek {
+    
+    
+    public partial class Home {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,25 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
+        /// <summary>
+        /// lbWesLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbWesLogin;
+        
+        /// <summary>
+        /// lbTokek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTokek;
+        
         /// <summary>
         /// search_input control.
         /// </summary>

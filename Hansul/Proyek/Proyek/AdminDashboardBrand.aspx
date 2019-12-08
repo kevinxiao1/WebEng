@@ -51,10 +51,10 @@
                                         <a href="AdminDashboardProduct.aspx">Product</a>
                                     </li>
                                     <li>
-                                        <a href="AdminDashboardCategory">Category</a>
+                                        <a href="AdminDashboardCategory.aspx">Category</a>
                                     </li>
                                     <li>
-                                        <a href="AdminDashboardBrand.aspx">Brand</a>
+                                        <a href="#">Brand</a>
                                     </li>
                                     <li>
                                         <a href="#">Customer</a>
@@ -73,26 +73,22 @@
                 </div>
                 <div class="col-lg-9">
                     <div>
-
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
                         <br />
                         <br />
                         <br />
-
                         <br />
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 Master Brand<br />
                                 <asp:Label ID="lbl_tempid" runat="server" Visible="False"></asp:Label>
+                                <asp:Label ID="Label1" class="" runat="server" Text="Name : "></asp:Label>
+                                <asp:TextBox ID="tb_name" runat="server" class=""></asp:TextBox>
                                 <br />
                                 <br />
-                                <asp:Label ID="Label1" runat="server" Text="Name: "></asp:Label>
-                                <br />
-                                <asp:TextBox ID="tb_name" runat="server"></asp:TextBox>
-                                <br />
-                                &nbsp;<br />
-                                <asp:Button ID="btn_insert" runat="server" OnClick="btn_insert_Click" Text="Insert" />
+                                &nbsp;
+                                <asp:Button ID="btn_insert" class="btn-success" runat="server" OnClick="btn_insert_Click" Text="Insert" />
                                 <asp:Button ID="btn_edit" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
                                 <br />
                                 <br />

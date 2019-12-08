@@ -34,8 +34,8 @@
     <form id="form1" runat="server">
 
     <!--================Category Product Area =================-->
-    <section class="cat_product_area section_padding">
-        <div class="container">
+    <section>
+        <%--<div class="container">--%>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
@@ -70,13 +70,9 @@
                 </div>
                 <div class="col-lg-9">
                     <div>
-
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
                         <br />
-                        <br />
-                        <br />
-
                         <br />
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
@@ -89,8 +85,8 @@
                                 <asp:TextBox ID="tb_name" runat="server"></asp:TextBox>
                                 <br />
                                 &nbsp;<br />
-                                <asp:Button ID="btn_insert" runat="server" OnClick="btn_insert_Click" Text="Insert" />
-                                <asp:Button ID="btn_edit" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
+                                <asp:Button ID="btn_insert" class="btn-success" runat="server" OnClick="btn_insert_Click" Text="Insert" />
+                                <asp:Button ID="btn_edit" class="btn-info" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" />
                                 <br />
                                 <br />
                                 <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" OnRowDeleting="GridView1_RowDeleting1">
@@ -102,7 +98,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <%--</div>--%>
     </section>
     <!--================End Category Product Area =================-->
 
