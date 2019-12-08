@@ -12,8 +12,8 @@ namespace Proyek
     public partial class ShoppingCart : System.Web.UI.Page
     {
 
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
-        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
@@ -84,7 +84,7 @@ namespace Proyek
                         }
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><span class='input-number-decrement'> <i class='ti-angle-down'></i></span> <input class='input-number' type='text' value='1' min='0'max='10'> <span class='input-number-increment'> <i class='ti-angle-up'></i></span>   </div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><input type='number'></div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
                     }
 
 
@@ -122,6 +122,14 @@ namespace Proyek
                 lbIsi.Text = temp;
 
             }
+        }
+        protected void btnSearch(object sender, EventArgs e)
+        {
+
+            Response.Write("<script> alert('" + search_input.Value + "')</script>");
+
+            //btn_search.Text = "as";
+            //  Response.Write("asa");
         }
     }
 }

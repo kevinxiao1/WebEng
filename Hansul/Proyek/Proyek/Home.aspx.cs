@@ -45,7 +45,7 @@ namespace Proyek
         protected void btnSearch(object sender, EventArgs e)
         {
             //Response.Write("<script> alert('"+search_input.Value+"')</script>");
-            Response.Redirect("ProductCategory.aspx?search="+search_input.Value+"&which=2");
+            Response.Redirect("ProductCategory.aspx?name="+search_input.Value+"");
         }
 
         protected void btnBuyNow(object sender, EventArgs e)
