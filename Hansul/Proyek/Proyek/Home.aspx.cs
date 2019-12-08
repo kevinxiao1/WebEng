@@ -12,7 +12,7 @@ namespace Proyek
         public void SignOut()
         {
             Session["siapa"] = null;
-            Response.Redirect("home.aspx");
+            Response.Redirect("Home.aspx");
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,11 +44,8 @@ namespace Proyek
         }
         protected void btnSearch(object sender, EventArgs e)
         {
-           
-            Response.Write("<script> alert('"+search_input.Value+"')</script>");
-
-            //btn_search.Text = "as";
-            //  Response.Write("asa");
+            //Response.Write("<script> alert('"+search_input.Value+"')</script>");
+            Response.Redirect("ProductCategory.aspx?search="+search_input.Value+"&which=2");
         }
 
         protected void btnBuyNow(object sender, EventArgs e)
