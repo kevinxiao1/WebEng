@@ -113,6 +113,7 @@ namespace Proyek
                     //list_byte.Add(ba);
                 }
                 listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>" + dt.Rows[i]["Harga"] + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
+                FoundTxt.Text = "<p><span>" + dt.Rows.Count + " </span> Product Found</p>";
             }
         }
 
@@ -154,6 +155,7 @@ namespace Proyek
             string tes = "";
             string tes2 = "";
             listProduct.Text = "";
+            FoundTxt.Text = "<p><span>"+ dt.Rows.Count + " </span> Product Found</p>";
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt.Rows[i]["NamaProduk"] + "'";
