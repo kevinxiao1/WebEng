@@ -116,7 +116,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+                <asp:Label ID="lbIsi" runat="server" Text=""></asp:Label>
+              <%--<tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
@@ -263,7 +264,7 @@
                     <a class="btn_1" href="#">Update Details</a>
                   </div>
                 </td>
-              </tr>
+              </tr>--%>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">
