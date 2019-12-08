@@ -84,7 +84,7 @@ namespace Proyek
                         }
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><input type='number'></div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><input type='number' min='0'></div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
                     }
 
 
