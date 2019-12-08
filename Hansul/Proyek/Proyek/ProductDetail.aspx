@@ -184,7 +184,7 @@
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
                  <%--// class="form-control"--%>
-                <input class="input-number" type="text" value="1" min="0" max="10" id="qty" runat="server">
+                <input class="input-number" type="text" value="1" min="0" max="10" id="qty" runat="server" />
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
                <%--  <asp:Button ID="btn_edit" class="btn-info" runat="server" Enabled="False" OnClick="btn_edit_Click" Text="Edit" --%>
