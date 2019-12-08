@@ -124,8 +124,32 @@ namespace Proyek
 
             if (Session["siapa"] == null) //guest
             {
-                string id = Request.QueryString["id"];
+                if(Session["idguest"]==null)
+                {
+                    TestConn();
 
+                    int temp = 0;
+
+                    SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.GuestCart", conn);
+                    DataTable dt = new DataTable();
+                    sq.Fill(dt);
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        temp = int.Parse(dt.Rows[i]["Id"].ToString());
+
+
+
+                    }
+                    conn.Close();
+                    temp++;
+
+
+                    string id = Request.QueryString["id"];
+
+                    Session["idguest"] = temp;
+                }
 
                 TestConn();
                 SqlCommand cmd = new SqlCommand("INSERT INTO dbo.GuestCart(ProductID,Qty) values('" + id + "','" + qty.Value+"" + "')", conn);
