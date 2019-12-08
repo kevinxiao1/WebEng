@@ -147,16 +147,27 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
+<<<<<<< HEAD
+                        <h3>Digital Camera</h3>
+                        <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
+                        <img src="img/feature/fitur2.png" alt=""/>
+=======
                         <h3>Mirrorless</h3>
                         <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="img/feature/banner1.png" alt=""/>
+>>>>>>> 1593c27a191d07307e5ff54ff6553dec1ecde841
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <h3>Action Camera</h3>
+<<<<<<< HEAD
+                        <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
+                        <img src="img/feature/fitur3.png" alt=""/>
+=======
                         <a href="ProductCategory.aspx?search=Camera" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="img/feature/banner2.png" alt=""/>
+>>>>>>> 1593c27a191d07307e5ff54ff6553dec1ecde841
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -169,8 +180,13 @@
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <h3>Audio and Accessories</h3>
+<<<<<<< HEAD
+                        <a href="ProductCategory.aspx?search=Merc" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
+                        <img src="img/feature/fitur4.png" alt=""/>
+=======
                         <a href="ProductCategory.aspx?search=Merc" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="img/feature/banner4.png" alt=""/>
+>>>>>>> 1593c27a191d07307e5ff54ff6553dec1ecde841
                     </div>
                 </div>
             </div>
