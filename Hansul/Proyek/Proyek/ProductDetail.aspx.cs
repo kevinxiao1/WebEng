@@ -116,5 +116,32 @@ namespace Proyek
                 }
             }
         }
+
+        protected void btn_insert_Click(object sender, EventArgs e)
+        {
+            //Response.Write("<script>alert('sasa') </script>");
+
+
+            if (Session["siapa"] == null) //guest
+            {
+                string id = Request.QueryString["id"];
+
+
+                TestConn();
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.GuestCart(ProductID,Qty) values('" + id + "','" + qty.Value+"" + "')", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            else
+            {
+                string id = Request.QueryString["id"];
+
+                TestConn();
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.CartUser(Username,ProductID,Qty) values('" + Session["siapa"].ToString()+"','" + id + "','" + qty.Value + "" + "')", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+
+        }
     }
 }
