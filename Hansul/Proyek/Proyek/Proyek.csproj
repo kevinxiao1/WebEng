@@ -79,6 +79,7 @@
     <Content Include="AdminDashboardCategory.aspx" />
     <Content Include="AdminDashboardProduct.aspx" />
     <Content Include="AdminDashboardPromo.aspx" />
+    <Content Include="CheckOut.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCategory.aspx" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="AdminDashboardPromo.aspx.designer.cs">
       <DependentUpon>AdminDashboardPromo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
