@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminDashboardBrand.aspx" />
+    <Content Include="AdminDashboardUser.aspx" />
     <Content Include="AdminDashboardCategory.aspx" />
     <Content Include="AdminDashboardProduct.aspx" />
     <Content Include="AdminDashboardPromo.aspx" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="AdminDashboardBrand.aspx.designer.cs">
       <DependentUpon>AdminDashboardBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardUser.aspx.cs">
+      <DependentUpon>AdminDashboardUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUser.aspx.designer.cs">
+      <DependentUpon>AdminDashboardUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminDashboardCategory.aspx.cs">
       <DependentUpon>AdminDashboardCategory.aspx</DependentUpon>
