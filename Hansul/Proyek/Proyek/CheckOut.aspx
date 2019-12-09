@@ -193,7 +193,8 @@
                     <span>Total</span>
                   </a>
                 </li>
-                <li>
+                <asp:Label ID="LabelPesanan" runat="server" Text="Label"></asp:Label>
+                <%--<li>
                   <a href="#">Fresh Blackberry
                     <span class="middle">x 02</span>
                     <span class="last">$720.00</span>
@@ -210,14 +211,15 @@
                     <span class="middle">x 02</span>
                     <span class="last">$720.00</span>
                   </a>
-                </li>
+                </li>--%>
               </ul>
               <ul class="list list_2">
-                <li>
+                  <asp:Label ID="LabelSubtotal" runat="server" Text=""></asp:Label>
+                <%--<li>
                   <a href="#">Subtotal
                     <span>$2160.00</span>
                   </a>
-                </li>
+                </li>--%>
                 <li>
                   <a href="#">Shipping
                     <span>Flat rate: $50.00</span>

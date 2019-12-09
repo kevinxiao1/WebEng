@@ -64,7 +64,7 @@ namespace Proyek
             {
                 conn = new SqlConnection(myconn);
 
-                string username = (string)Session["siapa"];
+                string username = (string)Session["siapaUsername"];
                 string temp = "";
 
 
