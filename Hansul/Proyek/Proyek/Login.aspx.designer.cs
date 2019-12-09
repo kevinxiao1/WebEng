@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Proyek
-{
-
-
-    public partial class Login
-    {
-
+namespace Proyek {
+    
+    
+    public partial class Login {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// lbWesLogin control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbWesLogin;
-
+        
         /// <summary>
         /// lbTokek control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbTokek;
-
+        
         /// <summary>
         /// search_input control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText search_input;
-
+        
         /// <summary>
         /// txtusername control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtusername;
-
+        
         /// <summary>
         /// txtpassword control.
         /// </summary>
@@ -67,5 +65,23 @@ namespace Proyek
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

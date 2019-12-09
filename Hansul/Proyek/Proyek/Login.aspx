@@ -101,11 +101,10 @@
         </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
+            </header>
                 <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
                 <button type="submit" class="btn"></button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
         </div>
     </div>
 </header>
@@ -129,7 +128,6 @@
                         <div class="login_part_form_iner">
                             <h3>Welcome Back ! <br>
                                 Please Sign in now</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" runat="server" class="form-control" id="txtusername" name="username" value=""
                                         placeholder="Username"/>
@@ -138,21 +136,23 @@
                                     <input type="password" runat="server" class="form-control" id="txtpassword" name="password" value=""
                                         placeholder="Password"/>
                                 </div>
-                                <div class="col-md-12 form-group">
+                                <div class="col-md-12 form-group" style="left: 0px; top: 0px">
                                     <div class="creat_account d-flex align-items-center">
                                         <input type="checkbox" id="f-option" name="selector"/>
                                         <label for="f-option">Remember me</label>
                                     </div>
                                     <asp:Button Text="Login" OnClick="btnLogin" runat="server" type="submit" value="submit" class="btn_3"/>
+                                    <asp:Button ID="Button1" OnClick="tokek" runat="server" Text="Button" />
                                     <a class="lost_pass" href="#">forget password?</a>
+                                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </form>
     <!--================login_part end =================-->
 
     <!--::footer_part start::-->
