@@ -73,8 +73,11 @@ namespace Proyek
             string cmd = "SELECT dbo.Product.ProductID as ID, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga from dbo.Product";
             string search = "";
             string name = "";
+            string sort = "";
             search = Request.QueryString["search"];
             name = Request.QueryString["name"];
+            sort = Request.QueryString["Sort"];
+
             if (search != "" && search != null)
             {
                cmd = "SELECT Product.ProductID as ID, Product.Name as NamaProduk, Product.SellPrice as Harga from dbo.Product Product, dbo.Category Cat WHERE Cat.CategoryID = Product.CategoryID and Cat.CategoryName = '" + search + "'";
@@ -82,6 +85,21 @@ namespace Proyek
             else if(name != "" && name != null)
             {
                 cmd = "SELECT Product.ProductID as ID, Product.Name as NamaProduk, Product.SellPrice as Harga from dbo.Product Product, dbo.Category Cat WHERE Cat.CategoryID = Product.CategoryID and Product.Name LIKE  '%" + name + "%'";
+            }
+            else if (sort !="" && sort != null)
+            {
+                if(sort == "Name")
+                {
+                    cmd = "SELECT dbo.Product.ProductID as ID, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga from dbo.Product ORDER BY dbo.Product.Name";
+                }
+                else if (sort == "SellPrice")
+                {
+                    cmd = "SELECT dbo.Product.ProductID as ID, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga from dbo.Product ORDER BY dbo.Product.SellPrice";
+                }
+                else if (sort == "Category")
+                {
+                    cmd = "SELECT dbo.Product.ProductID as ID, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga from dbo.Product ORDER BY dbo.Product.CategoryID";
+                }
             }
             TestConn();
             SqlDataAdapter sq = new SqlDataAdapter(cmd, conn);
@@ -112,7 +130,8 @@ namespace Proyek
                     }
                     //list_byte.Add(ba);
                 }
-                listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>" + dt.Rows[i]["Harga"] + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
+                int harga = int.Parse(dt.Rows[i]["Harga"].ToString());
+                listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>Rp. " + Convert.ToDecimal(harga).ToString("#,##0") + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
                 FoundTxt.Text = "<p><span>" + dt.Rows.Count + " </span> Product Found</p>";
             }
         }
@@ -130,13 +149,16 @@ namespace Proyek
             //Response.Write("<script>alert(" + dt.Rows.Count + ")</script>");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                SqlDataAdapter countData = new SqlDataAdapter("SELECT COUNT(ProductID) as JML FROM dbo.Product WHERE CategoryID = '" +dt.Rows[i]["CategoryID"]+ "'",conn);
+                DataTable CountD = new DataTable();
+                countData.Fill(CountD);
                 if (i == 0)
                 {
-                    ProductCategories.Text = "<li> <a href="+"#"+"> "+dt.Rows[i]["CategoryName"]+ " </ a > <span>(250)</span> </ li > ";
+                    ProductCategories.Text = "<li> <a href="+"#"+"> "+dt.Rows[i]["CategoryName"]+ " </ a > <span>("+CountD.Rows[0]["JML"]+")</span> </ li > ";
                 }
                 else
                 {
-                    ProductCategories.Text = ProductCategories.Text+"<li> <a href=" + "#" + "> " + dt.Rows[i]["CategoryName"] + " </ a > <span>(250)</span> </ li > ";
+                    ProductCategories.Text = ProductCategories.Text+"<li> <a href=" + "#" + "> " + dt.Rows[i]["CategoryName"] + " </ a > <span>(" + CountD.Rows[0]["JML"] + ")</span> </ li > ";
                 }
             }
             //GridView1.DataSource = dt;
