@@ -132,6 +132,7 @@ namespace Proyek
                 }
                 int harga = int.Parse(dt.Rows[i]["Harga"].ToString());
                 listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>Rp. " + Convert.ToDecimal(harga).ToString("#,##0") + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
+               
                 FoundTxt.Text = "<p><span>" + dt.Rows.Count + " </span> Product Found</p>";
             }
         }
