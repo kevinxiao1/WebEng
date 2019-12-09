@@ -274,8 +274,8 @@
           </div>
           
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="#">Continue Shopping</a>
-            <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+            <a class="btn_1" href="Home.aspx">Continue Shopping</a>
+            <a class="btn_1 checkout_btn_1" href="CheckOut.aspx">Proceed to checkout</a>
           </div>
         </div>
       </div>
@@ -494,6 +494,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
             
             document.getElementById("kanan" + id).innerHTML = sm ;
+
+            var x = document.getElementsByClassName("subtotal");
+            var i;
+            var temp = 0;
+            for (i = 0; i < x.length; i++) {
+            temp = temp + hrg;
+            document.getElementById("totalHarga").innerHTML = temp ;
+            //x[i].style.backgroundColor = "red";
+            }
         }
 
     </script>
