@@ -74,7 +74,7 @@ namespace Proyek
             string search = "";
             string name = "";
             string sort = "";
-            int page = 0;
+            int page = 1;
             page = int.Parse(Request.QueryString["page"]);
             search = Request.QueryString["search"];
             name = Request.QueryString["name"];
