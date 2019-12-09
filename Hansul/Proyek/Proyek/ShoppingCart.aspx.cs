@@ -114,38 +114,41 @@ namespace Proyek
 
                             int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
-                            temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>IDR "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
-                        }
+                        //    temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>IDR "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
+                        //}
 
 
-                        //   <% --< tr >
-                        //  < td >
-                        //    < div class="media">
-                        //      <div class="d-flex">
-                        //        <img src = "img/product/single-product/cart-1.jpg" alt="" />
-                        //      </div>
-                        //      <div class="media-body">
-                        //        <p>Minimalistic shop for multipurpose use</p>
-                        //      </div>
-                        //    </div>
-                        //  </td>
-                        //  <td>
-                        //    <h5>$360.00</h5>
-                        //  </td>
-                        //  <td>
-                        //    <div class="product_count">
-                        //      <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                        //      <input class="input-number" type="text" value="1" min="0" max="10">
-                        //      <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                        //    </div>
-                        //  </td>
-                        //  <td>
-                        //    <h5>$720.00</h5>
-                        //  </td>
-                        //</tr>--%>
-
-
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>";
                     }
+
+                    //   <% --< tr >
+                    //  < td >
+                    //    < div class="media">
+                    //      <div class="d-flex">
+                    //        <img src = "img/product/single-product/cart-1.jpg" alt="" />
+                    //      </div>
+                    //      <div class="media-body">
+                    //        <p>Minimalistic shop for multipurpose use</p>
+                    //      </div>
+                    //    </div>
+                    //  </td>
+                    //  <td>
+                    //    <h5>$360.00</h5>
+                    //  </td>
+                    //  <td>
+                    //    <div class="product_count">
+                    //      <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
+                    //      <input class="input-number" type="text" value="1" min="0" max="10">
+                    //      <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                    //    </div>
+                    //  </td>
+                    //  <td>
+                    //    <h5>$720.00</h5>
+                    //  </td>
+                    //</tr>--%>
+
+
+                }
                     conn.Close();
 
 
