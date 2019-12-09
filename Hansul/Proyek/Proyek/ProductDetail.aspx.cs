@@ -120,8 +120,7 @@ namespace Proyek
         protected void btn_insert_Click(object sender, EventArgs e)
         {
             //Response.Write("<script>alert('sasa') </script>");
-
-
+            string id = Request.QueryString["id"];
             if (Session["siapa"] == null) //guest
             {
                 if(Session["idguest"]==null)
@@ -145,8 +144,7 @@ namespace Proyek
                     conn.Close();
                     temp++;
 
-
-                    string id = Request.QueryString["id"];
+                    
 
                     Session["idguest"] = temp;
                 }
@@ -158,7 +156,7 @@ namespace Proyek
             }
             else
             {
-                string id = Request.QueryString["id"];
+                
 
                 TestConn();
                 SqlCommand cmd = new SqlCommand("INSERT INTO dbo.CartUser(Username,ProductID,Qty) values('" + Session["siapa"].ToString()+"','" + id + "','" + qty.Value + "" + "')", conn);

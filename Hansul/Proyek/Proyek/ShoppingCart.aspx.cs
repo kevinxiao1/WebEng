@@ -25,6 +25,38 @@ namespace Proyek
             }
             conn.Open();
         }
+
+        string ConvertHarga(string hrg)
+        {
+            string temp = "";
+            int co = 0;
+            for (int i = hrg.Length-1; i >= 0; i--)
+            {
+                co++;
+
+                if((co%3==0) && (i>0))
+                {
+                    temp += hrg[i]+ ".";
+                }
+                else
+                {
+
+                    temp += hrg[i];
+                }
+
+            }
+
+
+            string temp2 = "";
+            for (int i = temp.Length-1; i >= 0; i--)
+            {
+                temp2 += temp[i];
+            }
+
+            return temp2;
+        }
+
+
         //idguest
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -80,8 +112,9 @@ namespace Proyek
 
                             }
 
+                            int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
-                            temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><input type='number' min='0'></div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
+                            temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>Rp. "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
                         }
 
 
@@ -122,89 +155,99 @@ namespace Proyek
             }
             else
             {
-               // int temp = int.Parse(Session["idguest"].ToString());
-                string temp = "";
-                SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.GuestCart", conn);
-                DataTable dt = new DataTable();
-                sq.Fill(dt);
-
-                for (int i = 0; i < dt.Rows.Count; i++)
+                try
                 {
-                    if (int.Parse(dt.Rows[i]["Id"].ToString()) >= int.Parse(Session["idguest"].ToString()) )
+                    // int temp = int.Parse(Session["idguest"].ToString());
+                    conn = new SqlConnection(myconn);
+                    TestConn();
+                    string temp = "";
+                    SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.GuestCart", conn);
+                    DataTable dt = new DataTable();
+                    sq.Fill(dt);
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
                     {
-
-                        SqlDataAdapter sq2 = new SqlDataAdapter("SELECT * FROM dbo.Product where ProductID='" + dt.Rows[i]["ProductID"] + "'", conn);
-                        DataTable dt2 = new DataTable();
-                        sq2.Fill(dt2);
-
-                        for (int y = 0; y < dt2.Rows.Count; y++)
+                        if (int.Parse(dt.Rows[i]["Id"].ToString()) >= int.Parse(Session["idguest"].ToString()))
                         {
-                            string tes = "";
-                            string tes2 = "";
-                            string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt2.Rows[y]["Name"] + "'";
-                            SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
-                            DataTable dt3 = new DataTable();
-                            sg.Fill(dt3);
-                            for (int j = 0; j < dt3.Rows.Count; j++)
+
+                            SqlDataAdapter sq2 = new SqlDataAdapter("SELECT * FROM dbo.Product where ProductID='" + dt.Rows[i]["ProductID"] + "'", conn);
+                            DataTable dt2 = new DataTable();
+                            sq2.Fill(dt2);
+
+                            for (int y = 0; y < dt2.Rows.Count; y++)
                             {
-                                if (dt3.Rows[j]["ProductID"].ToString() == tes)
+                                string tes = "";
+                                string tes2 = "";
+                                string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt2.Rows[y]["Name"] + "'";
+                                SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
+                                DataTable dt3 = new DataTable();
+                                sg.Fill(dt3);
+                                for (int j = 0; j < dt3.Rows.Count; j++)
                                 {
+                                    if (dt3.Rows[j]["ProductID"].ToString() == tes)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        byte[] ba = (byte[])dt3.Rows[j]["PictData"];
+                                        string strBase64 = Convert.ToBase64String(ba);
+                                        tes2 = strBase64;
+                                        break;
+
+                                        //list_string.Add(strBase64);
+                                    }
+
+
+
 
                                 }
-                                else
-                                {
-                                    byte[] ba = (byte[])dt3.Rows[j]["PictData"];
-                                    string strBase64 = Convert.ToBase64String(ba);
-                                    tes2 = strBase64;
-                                    break;
+                                int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
-                                    //list_string.Add(strBase64);
-                                }
-
-
-
-
+                                temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " +ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number'  value='" +ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5>Rp. " +ConvertHarga(totharga.ToString()) + "</h5>   </td>  </tr>";
                             }
 
 
-                            temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + dt2.Rows[y]["SellPrice"] + "</h5> </td>  <td> <div class='product_count'><input type='number' min='0'></div> </td> <td> <h5>$720.00</h5>   </td>  </tr>";
+                            //   <% --< tr >
+                            //  < td >
+                            //    < div class="media">
+                            //      <div class="d-flex">
+                            //        <img src = "img/product/single-product/cart-1.jpg" alt="" />
+                            //      </div>
+                            //      <div class="media-body">
+                            //        <p>Minimalistic shop for multipurpose use</p>
+                            //      </div>
+                            //    </div>
+                            //  </td>
+                            //  <td>
+                            //    <h5>$360.00</h5>
+                            //  </td>
+                            //  <td>
+                            //    <div class="product_count">
+                            //      <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
+                            //      <input class="input-number" type="text" value="1" min="0" max="10">
+                            //      <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                            //    </div>
+                            //  </td>
+                            //  <td>
+                            //    <h5>$720.00</h5>
+                            //  </td>
+                            //</tr>--%>
+
+
                         }
+                        conn.Close();
 
 
-                        //   <% --< tr >
-                        //  < td >
-                        //    < div class="media">
-                        //      <div class="d-flex">
-                        //        <img src = "img/product/single-product/cart-1.jpg" alt="" />
-                        //      </div>
-                        //      <div class="media-body">
-                        //        <p>Minimalistic shop for multipurpose use</p>
-                        //      </div>
-                        //    </div>
-                        //  </td>
-                        //  <td>
-                        //    <h5>$360.00</h5>
-                        //  </td>
-                        //  <td>
-                        //    <div class="product_count">
-                        //      <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                        //      <input class="input-number" type="text" value="1" min="0" max="10">
-                        //      <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                        //    </div>
-                        //  </td>
-                        //  <td>
-                        //    <h5>$720.00</h5>
-                        //  </td>
-                        //</tr>--%>
-
+                        lbIsi.Text = temp;
 
                     }
-                    conn.Close();
-
-
-                    lbIsi.Text = temp;
-
                 }
+                catch (Exception)
+                {
+                    
+                }
+               
 
             }
 
