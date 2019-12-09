@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductCategory.aspx.cs" Inherits="Proyek.ProductCategory" %>
+﻿<asp:label runat="server" text="Label"></asp:label>
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductCategory.aspx.cs" Inherits="Proyek.ProductCategory" %>
 
 <!DOCTYPE html>
 
@@ -130,7 +132,7 @@
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu">
-                                    <p><span>10000 </span> Product Found</p>
+                                    <asp:Label ID="FoundTxt" runat="server"></asp:Label>
                                 </div>
                                 <div class="single_product_menu d-flex">
                                     <h5>show :</h5>
