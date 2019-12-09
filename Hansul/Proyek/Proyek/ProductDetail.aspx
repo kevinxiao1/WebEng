@@ -101,7 +101,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
             <form class="d-flex justify-content-between search-inner">
@@ -135,9 +134,9 @@
               <div data-thumb="img/product/single-product/product_1.png">
                 <img src="img/product/single-product/product_1.png" />
               </div>--%>
-            </div>
+            <%--</div>
           </div>
-        </div>
+        </div>--%>
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
             <h5>previous <span>|</span> next</h5>
@@ -158,9 +157,9 @@
             </div>
           </div>
         </div>
-      </div>
+      <%--</div>
     </div>
-  </div>
+  </div>--%>
 
     </form>
   <!--================End Single Product Area =================-->
