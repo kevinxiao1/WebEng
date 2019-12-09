@@ -74,6 +74,8 @@ namespace Proyek
             string search = "";
             string name = "";
             string sort = "";
+            int page = 0;
+            page = int.Parse(Request.QueryString["page"]);
             search = Request.QueryString["search"];
             name = Request.QueryString["name"];
             sort = Request.QueryString["Sort"];
@@ -107,33 +109,39 @@ namespace Proyek
             sq.Fill(dt);
             string tes = "";
             string tes2 = "";
-            for (int i = 0; i < dt.Rows.Count; i++)
+            int batas = page * 5;
+            try
             {
-                string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '"+ dt.Rows[i]["NamaProduk"] + "'";
-                SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
-                DataTable dt2 = new DataTable();
-                sg.Fill(dt2);
-                for (int j = 0; j < dt2.Rows.Count; j++)
+                for (int i = batas - 5; i < batas; i++)
                 {
-                    if(dt2.Rows[j]["ProductID"].ToString()==tes)
+                    string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt.Rows[i]["NamaProduk"] + "'";
+                    SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
+                    DataTable dt2 = new DataTable();
+                    sg.Fill(dt2);
+                    for (int j = 0; j < dt2.Rows.Count; j++)
                     {
+                        if (dt2.Rows[j]["ProductID"].ToString() == tes)
+                        {
 
+                        }
+                        else
+                        {
+                            byte[] ba = (byte[])dt2.Rows[j]["PictData"];
+                            string strBase64 = Convert.ToBase64String(ba);
+                            tes2 = strBase64;
+                            break;
+
+                            //list_string.Add(strBase64);
+                        }
+                        //list_byte.Add(ba);
                     }
-                    else
-                    {
-                        byte[] ba = (byte[])dt2.Rows[j]["PictData"];
-                        string strBase64 = Convert.ToBase64String(ba);
-                        tes2 = strBase64;
-                        break;
-                        
-                        //list_string.Add(strBase64);
-                    }
-                    //list_byte.Add(ba);
+                    int harga = int.Parse(dt.Rows[i]["Harga"].ToString());
+                    listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>Rp. " + Convert.ToDecimal(harga).ToString("#,##0") + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
+                    FoundTxt.Text = "<p><span>" + dt.Rows.Count + " </span> Product Found</p>";
                 }
-                int harga = int.Parse(dt.Rows[i]["Harga"].ToString());
-                listProduct.Text = listProduct.Text + "<div class=" + "col-lg-4 col-sm-6" + "><div class=" + "single_product_item" + "><img src=data:image/png;base64," + tes2 + "><div class=" + "single_product_text" + "><h4>" + dt.Rows[i]["NamaProduk"] + "</h4><h3>Rp. " + Convert.ToDecimal(harga).ToString("#,##0") + "</h3><a href = " + "ProductDetail.aspx?id=" + dt.Rows[i]["ID"] + " class=" + "add_cart" + ">View Product<i class=" + "ti-heart" + "></i></a></div></div></div>";
-                FoundTxt.Text = "<p><span>" + dt.Rows.Count + " </span> Product Found</p>";
             }
+            catch (Exception)
+            {}
         }
 
         void getdata()
