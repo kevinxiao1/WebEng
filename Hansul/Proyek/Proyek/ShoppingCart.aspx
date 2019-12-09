@@ -494,6 +494,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
             
             document.getElementById("kanan" + id).innerHTML = sm ;
+
+            var x = document.getElementsByClassName("subtotal");
+            var i;
+            var temp = 0;
+            for (i = 0; i < x.length; i++) {
+            temp = temp + hrg;
+            document.getElementById("totalHarga").innerHTML = temp ;
+            //x[i].style.backgroundColor = "red";
+            }
         }
 
     </script>

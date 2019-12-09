@@ -113,9 +113,6 @@
     </div>
 </header>
     <!-- Header part end-->
-
-    </header>
-    <!-- Header part end-->
   <!--================End Home Banner Area =================-->
     <form id="form1" runat="server">
   <!--================Single Product Area =================-->
@@ -546,6 +543,7 @@
               </div>
             </div>
           </div>
+=======
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
           <p>
             Beryl Cook is one of Britain’s most talented and amusing artists
@@ -576,6 +574,7 @@
             a streamlined plan of cooking that is more efficient for one
             person creating less
           </p>
+>>>>>>> be29eba6aefd857fa68727a9ec7b00656fa9bf49
         </div>
       </div>
     </div>

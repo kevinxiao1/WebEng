@@ -48,7 +48,7 @@
                                     <a class="nav-link" href="Home.aspx">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ProductCategory.aspx">Product</a>
+                                    <a class="nav-link" href="ProductCategory.aspx?page=1">Product</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">About Us</a>
