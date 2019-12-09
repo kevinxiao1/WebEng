@@ -101,7 +101,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
@@ -113,29 +112,6 @@
         </div>
     </div>
 </header>
-    <!-- Header part end-->
-
-  <!-- breadcrumb start-->
-  <section class="breadcrumb breadcrumb_bg">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2>Shop Single</h2>
-              <p>Home <span>-</span> Shop Single</p>
-=======
-<%--        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <div class="d-flex justify-content-between search-inner" >
-                    <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here" />
-                    <%--<asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>--%>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </div>
->>>>>>> be29eba6aefd857fa68727a9ec7b00656fa9bf49
-            </div>
-        </div>--%>
-    </header>
     <!-- Header part end-->
   <!--================End Home Banner Area =================-->
     <form id="form1" runat="server">
@@ -211,6 +187,7 @@
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
+<<<<<<< HEAD
           <asp:Label ID="LBDescription" runat="server" Text=""></asp:Label>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">
