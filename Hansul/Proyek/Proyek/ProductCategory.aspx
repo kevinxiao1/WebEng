@@ -168,7 +168,7 @@
                                                 <i class="ti-angle-double-left"></i>
                                             </a>
                                         </li>
-                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=1">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx">1</a></li>
                                         <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=2">2</a></li>
                                         <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=3">3</a></li>
                                         <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=4">4</a></li>
