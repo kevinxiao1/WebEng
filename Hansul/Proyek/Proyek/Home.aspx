@@ -45,7 +45,7 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="home.aspx">Home</a>
+                                    <a class="nav-link" href="Home.aspx">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="ProductCategory.aspx?page=1">Product</a>
@@ -55,13 +55,28 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="hearer_icon d-flex">
+                        <div class="header_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <div class="dropdown cart" href="ShoppingCart.aspx">
+                            <%--<div class="dropdown cart" href="ShoppingCart.aspx">
                                 <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-cart-plus" href="ShoppingCart.aspx"></i>
                                 </a>
+                                
+                            </div>--%>
+                            <div class="dropdown cart" href="ShoppingCart.aspx">
+                                <a class="btn-3" href="ShoppingCart.aspx">
+                               <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   
+                                </a>--%>
+                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+                                        
+                                    </div>
+                                </div> --%>
+                                 <i class="fas fa-cart-plus"></i>
+                            </a>
                                 
                             </div>
                             <div class="dropdown">

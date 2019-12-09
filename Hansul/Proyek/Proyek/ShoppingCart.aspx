@@ -56,10 +56,18 @@
                         <div class="hearer_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart" href="ShoppingCart.aspx">
-                                <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
+                                <a class="btn-3" href="ShoppingCart.aspx">
+                               <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus" href="ShoppingCart.aspx"></i>
-                                </a>
+                                   
+                                </a>--%>
+                            <%--     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="single_product">
+                                        
+                                    </div>
+                                </div> --%>
+                                 <i class="fas fa-cart-plus"></i>
+                            </a>
                                 
                             </div>
                             <div class="dropdown">
@@ -90,16 +98,16 @@
                 </div>
             </div>
         </div>
-        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <div class="d-flex justify-content-between search-inner" >
-                    <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here" />
-                    <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </div>
-            </div>
+    <div class="search_input" id="search_input_box">
+        <div class="container ">
+            <form class="d-flex justify-content-between search-inner">
+                <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
+                <button type="submit" class="btn"></button>
+                <span class="ti-close" id="close_search" title="Close Search"></span>
+            </form>
         </div>
-    </header>
+    </div>
+</header>
   <!-- Header part end-->
   <!--================Cart Area =================-->
   <section class="cart_area padding_top">
@@ -274,8 +282,8 @@
           </div>
           
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="#">Continue Shopping</a>
-            <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+            <a class="btn_1" href="Home.aspx">Continue Shopping</a>
+            <a class="btn_1 checkout_btn_1" href="CheckOut.aspx">Proceed to checkout</a>
           </div>
         </div>
       </div>
