@@ -187,7 +187,6 @@
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-<<<<<<< HEAD
           <asp:Label ID="LBDescription" runat="server" Text=""></asp:Label>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">

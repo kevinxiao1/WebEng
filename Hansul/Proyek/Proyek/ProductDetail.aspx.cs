@@ -28,7 +28,7 @@ namespace Proyek
 
         void getProduct()
         {
-            string cmd = "SELECT DISTINCT dbo.Category.CategoryName as Cat, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga, dbo.Product.Specs as tulul from dbo.Product ,dbo.Pict, dbo.Category WHERE dbo.Product.CategoryID = dbo.Category.CategoryID and dbo.Product.ProductID = '" + Request.QueryString["id"] + "'";
+            string cmd = "SELECT DISTINCT dbo.Category.CategoryName as Cat, dbo.Product.Name as NamaProduk, dbo.Product.SellPrice as Harga, dbo.Product.Specs as Specs from dbo.Product ,dbo.Pict, dbo.Category WHERE dbo.Product.CategoryID = dbo.Category.CategoryID and dbo.Product.ProductID = '" + Request.QueryString["id"] + "'";
             TestConn();
             SqlDataAdapter sq = new SqlDataAdapter(cmd, conn);
             DataTable dt = new DataTable();
@@ -44,7 +44,7 @@ namespace Proyek
                 "</ul>" +
                 "<p></p>";
             conn.Close();
-            LBDescription.Text = "<divclass='tab - pane fade' id='Description' role='tabpanel' aria-labelledby='contact - tab'> <p>"+ dt.Rows[0]["tulul"].ToString() + "</p></div>";
+            LBDescription.Text = "<divclass='tab - pane fade' id='Description' role='tabpanel' aria-labelledby='contact - tab'> <p>"+ dt.Rows[0]["Specs"].ToString() + "</p></div>";
             getGambar(dt.Rows[0]["NamaProduk"].ToString());
         }
 
