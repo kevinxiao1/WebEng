@@ -12,9 +12,9 @@ namespace Proyek
     public partial class ShoppingCart : System.Web.UI.Page
     {
 
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
        // string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         public void TestConn()
@@ -146,7 +146,7 @@ namespace Proyek
                         //}
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>";
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td> <td><input type='button' value='Delete' onclick='msg()'></td> </tr>";
                     }
 
                     //   <% --< tr >
@@ -235,7 +235,7 @@ namespace Proyek
                                 }
                                 int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
-                                temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga( dt2.Rows[y]["SellPrice"].ToString() )+ "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString() )+ "</h5> </td>  </tr>";
+                                temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga( dt2.Rows[y]["SellPrice"].ToString() )+ "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString() )+ "</h5> </td>  <td><input type='button' value='Delete' onclick='msg()'></td> </tr>";
                             }
                             
 
