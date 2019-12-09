@@ -133,15 +133,16 @@
                                     <asp:Label ID="FoundTxt" runat="server"></asp:Label>
                                 </div>
                                 <div class="single_product_menu d-flex">
-                                    <h5>show :</h5>
+                                    <h5>Sort by :</h5>
                                     <div class="top_pageniation">
                                         <ul>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
+                                            <li onclick="location.href='ProductCategory.aspx?Sort=Name';">NAME</li>
+                                            <li onclick="location.href='ProductCategory.aspx?Sort=Category';">PRODUCT</li>
+                                            <li onclick="location.href='ProductCategory.aspx?Sort=SellPrice';">PRICE</li>
                                         </ul>
                                     </div>
                                 </div>
+            
                             </div>
                         </div>
                     </div>
