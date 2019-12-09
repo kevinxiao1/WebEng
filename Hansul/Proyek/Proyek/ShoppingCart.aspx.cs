@@ -60,11 +60,16 @@ namespace Proyek
         //idguest
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["siapa"]!=null)
+            List<string> tampung = new List<string>();
+            List<string> tampungQty = new List<string>();
+            List<string> tampungQuery = new List<string>();
+            if (Session["siapa"]!=null)
             {
                 conn = new SqlConnection(myconn);
 
-                string username = (string)Session["siapaUsername"];
+                string username = (string)Session["siapa"];
+
+                Response.Write("<script>alert('" + username + "') </script>");
                 string temp = "";
 
 
@@ -85,41 +90,92 @@ namespace Proyek
 
                         for (int y = 0; y < dt2.Rows.Count; y++)
                         {
-                            string tes = "";
-                            string tes2 = "";
-                            string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt2.Rows[y]["Name"] + "'";
-                            SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
-                            DataTable dt3 = new DataTable();
-                            sg.Fill(dt3);
-                            for (int j = 0; j < dt3.Rows.Count; j++)
+                            if(tampung.Contains(dt2.Rows[y]["ProductID"].ToString()))
                             {
-                                if (dt3.Rows[j]["ProductID"].ToString() == tes)
+                                int index = i;
+                                int qtysblm = int.Parse(tampungQty[index]);
+                                int qtyskrg = int.Parse(dt.Rows[i]["Qty"].ToString());
+
+                                int qtyFix = qtysblm + qtyskrg;
+
+
+                                string tes = "";
+                                string tes2 = "";
+                                string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt2.Rows[y]["Name"] + "'";
+                                SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
+                                DataTable dt3 = new DataTable();
+                                sg.Fill(dt3);
+                                for (int j = 0; j < dt3.Rows.Count; j++)
                                 {
+                                    if (dt3.Rows[j]["ProductID"].ToString() == tes)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        byte[] ba = (byte[])dt3.Rows[j]["PictData"];
+                                        string strBase64 = Convert.ToBase64String(ba);
+                                        tes2 = strBase64;
+                                        break;
+
+                                        //list_string.Add(strBase64);
+                                    }
+
+
+
 
                                 }
-                                else
-                                {
-                                    byte[] ba = (byte[])dt3.Rows[j]["PictData"];
-                                    string strBase64 = Convert.ToBase64String(ba);
-                                    tes2 = strBase64;
-                                    break;
 
-                                    //list_string.Add(strBase64);
+                                int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * qtyFix;
+
+                                tampungQuery[index] = "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(qtyFix.ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>";
+                            }
+                            else
+                            {
+                                string tes = "";
+                                string tes2 = "";
+                                string gbr = "SELECT ProductID, PictData FROM Pict where ProductID = '" + dt2.Rows[y]["Name"] + "'";
+                                SqlDataAdapter sg = new SqlDataAdapter(gbr, conn);
+                                DataTable dt3 = new DataTable();
+                                sg.Fill(dt3);
+                                for (int j = 0; j < dt3.Rows.Count; j++)
+                                {
+                                    if (dt3.Rows[j]["ProductID"].ToString() == tes)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        byte[] ba = (byte[])dt3.Rows[j]["PictData"];
+                                        string strBase64 = Convert.ToBase64String(ba);
+                                        tes2 = strBase64;
+                                        break;
+
+                                        //list_string.Add(strBase64);
+                                    }
+
+
+
+
                                 }
 
+                                int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
 
+                            tampung.Add(dt2.Rows[y]["ProductID"].ToString());
+                                tampungQty.Add(dt.Rows[i]["Qty"].ToString());
+                            tampungQuery.Add("<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>");
 
                             }
 
-                            int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
-
-                        //    temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>IDR "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
-                        //}
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>";
-                    }
+
+
+
+
+                            //temp += ;
+                        }
 
                     //   <% --< tr >
                     //  < td >
@@ -151,8 +207,14 @@ namespace Proyek
                 }
                     conn.Close();
 
+                    string fixQuery = "";
 
-                    lbIsi.Text = temp;
+                    for (int k = 0; k < tampungQuery.Count; k++)
+                    {
+                        fixQuery += tampungQuery[k];
+                    }
+
+                    lbIsi.Text = fixQuery;
 
                 }
             }
