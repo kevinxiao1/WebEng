@@ -12,9 +12,9 @@ namespace Proyek
     public partial class ShoppingCart : System.Web.UI.Page
     {
 
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
        // string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         public void TestConn()
@@ -58,9 +58,37 @@ namespace Proyek
 
 
         //idguest
+        public void SignOut()
+        {
+            Session["siapa"] = null;
+            Session["siapaUsername"] = null;
+            Response.Redirect("Home.aspx");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["siapa"]!=null)
+            try
+            {
+                string logout = Request.QueryString["sgout"];
+                if (logout == "true")
+                {
+                    SignOut();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            if (Session["siapa"] == null)
+            {
+                lbWesLogin.Text = "Welcome, guest";
+                lbTokek.Text = "<a class='dropdown-item' href='login.aspx'>Sign In</a>" + "<a class='dropdown-item' href='register.aspx'>Sign Up</a>";
+            }
+            else
+            {
+                lbWesLogin.Text = "Welcome, " + (string)Session["siapa"];
+                lbTokek.Text = "<a class='dropdown-item' href='#'>Edit Profile</a>" + "<a class='dropdown-item' href='home.aspx?sgout=true'>Logout</a>";
+            }
+            if (Session["siapa"]!=null)
             {
                 conn = new SqlConnection(myconn);
 
