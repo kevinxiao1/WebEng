@@ -132,5 +132,16 @@ namespace Proyek
 
 
         }
+        protected void tokek(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('cok')</script>");
+
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('cok')</script>");
+        }
     }
 }
