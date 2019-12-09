@@ -45,18 +45,25 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="home.aspx">Home</a>
+                                    <a class="nav-link" href="Home.aspx">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ProductCategory.aspx">Product</a>
+                                    <a class="nav-link" href="ProductCategory.aspx?page=1">Product</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">About Us</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="hearer_icon d-flex">
+                        <div class="header_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <%--<div class="dropdown cart" href="ShoppingCart.aspx">
+                                <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cart-plus" href="ShoppingCart.aspx"></i>
+                                </a>
+                                
+                            </div>--%>
                             <div class="dropdown cart" href="ShoppingCart.aspx">
                                 <a class="btn-3" href="ShoppingCart.aspx">
                                <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
@@ -100,16 +107,16 @@
                 </div>
             </div>
         </div>
-    <div class="search_input" id="search_input_box">
-        <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
-                <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
-                <button type="submit" class="btn"></button>
-                <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
+        <div class="search_input" id="search_input_box">
+            <div class="container ">
+                <div class="d-flex justify-content-between search-inner" >
+                    <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here" />
+                    <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
+                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                </div>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
     <!-- Header part end-->
 
     <!-- banner part start-->

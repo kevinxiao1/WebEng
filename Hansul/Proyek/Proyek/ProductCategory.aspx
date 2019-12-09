@@ -168,12 +168,12 @@
                                                 <i class="ti-angle-double-left"></i>
                                             </a>
                                         </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=1">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=2">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=3">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=4">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=5">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="ProductCategory.aspx?page=6">6</a></li>
                                         <li class="page-item">
                                             <a class="page-link" href="#" aria-label="Next">
                                                 <i class="ti-angle-double-right"></i>
