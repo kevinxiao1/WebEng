@@ -6784,7 +6784,7 @@ h6 {
 
 /* line 1001, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .default-select .nice-select {
-  border: none;
+  /* border: none; */
   border-radius: 0px;
   height: 40px;
   background: #f9f9ff;

@@ -11,9 +11,9 @@ namespace Proyek
 {
     public partial class ProductDetail : System.Web.UI.Page
     {
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
 
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
+        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
@@ -120,12 +120,34 @@ namespace Proyek
         protected void btn_insert_Click(object sender, EventArgs e)
         {
             //Response.Write("<script>alert('sasa') </script>");
-
-
+            string id = Request.QueryString["id"];
             if (Session["siapa"] == null) //guest
             {
-                string id = Request.QueryString["id"];
+                if(Session["idguest"]==null)
+                {
+                    TestConn();
 
+                    int temp = 0;
+
+                    SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.GuestCart", conn);
+                    DataTable dt = new DataTable();
+                    sq.Fill(dt);
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        temp = int.Parse(dt.Rows[i]["Id"].ToString());
+
+
+
+                    }
+                    conn.Close();
+                    temp++;
+
+                    
+
+                    Session["idguest"] = temp;
+                }
 
                 TestConn();
                 SqlCommand cmd = new SqlCommand("INSERT INTO dbo.GuestCart(ProductID,Qty) values('" + id + "','" + qty.Value+"" + "')", conn);
@@ -134,7 +156,7 @@ namespace Proyek
             }
             else
             {
-                string id = Request.QueryString["id"];
+                
 
                 TestConn();
                 SqlCommand cmd = new SqlCommand("INSERT INTO dbo.CartUser(Username,ProductID,Qty) values('" + Session["siapa"].ToString()+"','" + id + "','" + qty.Value + "" + "')", conn);
