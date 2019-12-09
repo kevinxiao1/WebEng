@@ -23,6 +23,7 @@ namespace Proyek
         public void SignOut()
         {
             Session["siapa"] = null;
+            Session["siapaUsername"] = null;
             Response.Redirect("Home.aspx");
         }
         
@@ -82,7 +83,8 @@ namespace Proyek
                     {
                        if (dt.Rows[i]["Password"].ToString() == password)
                        {
-                            Session["siapa"] = dt.Rows[i]["Username"].ToString();
+                            Session["siapa"] = dt.Rows[i]["Name"].ToString();
+                            Session["siapaUsername"] = dt.Rows[i]["Username"].ToString();
                             return (true);
                        }
                     }
