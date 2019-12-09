@@ -398,9 +398,96 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/custom.js"></script>
 
     <script>
+        function ConvertHarga(hrg)
+        {
+            var temp = "";
+            var co = 0;
+            for (var i = hrg.Length - 1; i >= 0; i--)
+            {
+                co++;
 
-        function Berubah(){
-            alert('a');
+                if((co%3==0) && (i>0))
+                {
+                    temp += hrg[i]+ ".";
+                }
+                else
+                {
+
+                    temp += hrg[i];
+                }
+
+            }
+
+
+            var temp2 = "";
+            for (var i = temp.Length - 1; i >= 0; i--)
+            {
+                temp2 += temp[i];
+            }
+
+            return temp2;
+        }
+
+
+        function Berubah(id, val) {
+            var kiri = document.getElementById("kiri" + id).textContent
+
+            var k = "";
+            for (var i = 0; i < kiri.length; i++) {
+                try {
+
+                    if (kiri[i] / 1 == kiri[i])  {
+                        k += kiri[i];
+                    }
+                } catch (e)
+                {
+
+                }
+               
+            }
+
+            var hrg = parseInt(k) * val;
+
+            //hrg = hrg + "";
+
+
+            //var temp = "";
+            //var co = 0;
+            //for (var i = hrg.Length - 1; i >= 0; i--)
+            //{
+            //    co++;
+
+            //    if((co%3==0) && (i>0))
+            //    {
+            //        temp += hrg[i]+ ".";
+            //    }
+            //    else
+            //    {
+
+            //        temp += hrg[i];
+            //    }
+
+            //}
+
+
+            //var temp2 = "";
+            //for (var i = temp.Length - 1; i >= 0; i--)
+            //{
+            //    temp2 += temp[i];
+            //}
+
+
+            const formatter = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+                currency: 'IDR',
+            })
+          //  var t = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(hrg)
+
+            var t = formatter.format(hrg);
+           var sm = t.substring(0, t.length-3);
+
+            
+            document.getElementById("kanan" + id).innerHTML = sm ;
         }
 
     </script>
