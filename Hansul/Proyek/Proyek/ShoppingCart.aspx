@@ -396,6 +396,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/mail-script.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+
+    <script>
+
+        function Berubah(){
+            alert('a');
+        }
+
+    </script>
+
 </body>
 
    
