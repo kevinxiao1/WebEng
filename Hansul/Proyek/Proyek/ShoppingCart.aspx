@@ -266,7 +266,13 @@
                 </td>
               </tr>--%>
             </tbody>
+      
           </table>
+          <div style="text-align:right">
+              <h5>Total : </h5>
+              <asp:Label ID="totalHarga" runat="server" Text="0"></asp:Label>
+          </div>
+          
           <div class="checkout_btn_inner float-right">
             <a class="btn_1" href="#">Continue Shopping</a>
             <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>

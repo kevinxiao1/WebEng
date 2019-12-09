@@ -32,66 +32,34 @@
 <body>
    <!--::header part start::-->
    <header class="main_menu home_menu">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                    </button>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="home.aspx"> <img src="img/Logo/logo.png" alt=""/> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
 
-                    <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                    <a class="dropdown-item" href="category.html"> shop category</a>
-                                    <a class="dropdown-item" href="single-product.html">product details</a>
-                                    
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    pages
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="login.html"> login</a>
-                                    <a class="dropdown-item" href="tracking.html">tracking</a>
-                                    <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                    <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                    <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                    <a class="dropdown-item" href="elements.html">elements</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    blog
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="blog.html"> blog</a>
-                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                </div>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="hearer_icon d-flex">
-                        <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                       <a class="btn-3" href="ShoppingCart.aspx">
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="home.aspx">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductCategory.aspx">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="hearer_icon d-flex">
+                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <div class="dropdown cart" href="ShoppingCart.aspx">
+                                <a class="btn-3" href="ShoppingCart.aspx">
                                <%-- <a class="dropdown-toggle" href="ShoppingCart.aspx" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                    
@@ -103,8 +71,9 @@
                                 </div> --%>
                                  <i class="fas fa-cart-plus"></i>
                             </a>
-
-                         <div class="dropdown">
+                                
+                            </div>
+                            <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown">
                                     <asp:Label ID="lbWesLogin" runat="server" Text="Label"></asp:Label>
@@ -118,10 +87,21 @@
                                 </div> 
                                 
                             </div>
-                    </div>
-                </nav>
+                        </div>
+                        <%--<div>
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Shop
+                                    </a>
+                                   
+                                </li>
+                        </div>--%>
+                    </nav>
+                </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
@@ -144,13 +124,19 @@
             <div class="breadcrumb_iner_item">
               <h2>Shop Single</h2>
               <p>Home <span>-</span> Shop Single</p>
+=======
+        <div class="search_input" id="search_input_box">
+            <div class="container ">
+                <div class="d-flex justify-content-between search-inner" >
+                    <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here" />
+                    <%--<asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>--%>
+                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                </div>
+>>>>>>> be29eba6aefd857fa68727a9ec7b00656fa9bf49
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- breadcrumb start-->
+    </header>
+    <!-- Header part end-->
   <!--================End Home Banner Area =================-->
     <form id="form1" runat="server">
   <!--================Single Product Area =================-->
@@ -225,6 +211,7 @@
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
+<<<<<<< HEAD
           <asp:Label ID="LBDescription" runat="server" Text=""></asp:Label>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">
@@ -581,6 +568,38 @@
               </div>
             </div>
           </div>
+=======
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <p>
+            Beryl Cook is one of Britain’s most talented and amusing artists
+            .Beryl’s pictures feature women of all shapes and sizes enjoying
+            themselves .Born between the two world wars, Beryl Cook eventually
+            left Kendrick School in Reading at the age of 15, where she went
+            to secretarial school and then into an insurance office. After
+            moving to London and then Hampton, she eventually married her next
+            door neighbour from Reading, John Cook. He was an officer in the
+            Merchant Navy and after he left the sea in 1956, they bought a pub
+            for a year before John took a job in Southern Rhodesia with a
+            motor company. Beryl bought their young son a box of watercolours,
+            and when showing him how to use it, she decided that she herself
+            quite enjoyed painting. John subsequently bought her a child’s
+            painting set for her birthday and it was with this that she
+            produced her first significant work, a half-length portrait of a
+            dark-skinned lady with a vacant expression and large drooping
+            breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
+          </p>
+          <p>
+            It is often frustrating to attempt to plan meals that are designed
+            for one. Despite this fact, we are seeing more and more recipe
+            books and Internet websites that are dedicated to the act of
+            cooking for one. Divorce and the death of spouses or grown
+            children leaving for college are all reasons that someone
+            accustomed to cooking for more than one would suddenly need to
+            learn how to adjust all the cooking practices utilized before into
+            a streamlined plan of cooking that is more efficient for one
+            person creating less
+          </p>
+>>>>>>> be29eba6aefd857fa68727a9ec7b00656fa9bf49
         </div>
       </div>
     </div>
