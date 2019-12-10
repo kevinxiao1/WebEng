@@ -102,7 +102,7 @@
         <div class="container ">
             <form class="d-flex justify-content-between search-inner">
                 <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
-                <button type="submit" class="btn"></button>
+                <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
             </form>
         </div>

@@ -287,9 +287,8 @@ namespace Proyek
         }
         protected void btnSearch(object sender, EventArgs e)
         {
-
-            Response.Write("<script> alert('" + search_input.Value + "')</script>");
-
+            Response.Redirect("ProductCategory.aspx?name=" + search_input.Value + "");
+            //Response.Write("<script> alert('" + search_input.Value + "')</script>");
             //btn_search.Text = "as";
             //  Response.Write("asa");
         }
