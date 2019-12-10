@@ -12,9 +12,9 @@ namespace Proyek
     public partial class ShoppingCart : System.Web.UI.Page
     {
 
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI Github\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//Punya Adriel
        // string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
-        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
         //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya William
         SqlConnection conn;
         public void TestConn()
@@ -144,9 +144,35 @@ namespace Proyek
 
                         //    temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>IDR "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
                         //}
+                       
+                        
+                            if(i == dt.Rows.Count-1)
+                            {
+                                try
+                                {
+                                    totalHarga.Text = "IDR. " + ConvertHarga((int.Parse(totalHarga.Text) + totharga).ToString());
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                                
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    totalHarga.Text = (int.Parse(totalHarga.Text) + totharga).ToString();
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                               
+                            }
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td>  </tr>";
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td> </tr>";
                     }
 
                     //   <% --< tr >
@@ -235,48 +261,50 @@ namespace Proyek
                                 }
                                 int totharga = int.Parse(dt2.Rows[y]["SellPrice"].ToString()) * int.Parse(dt.Rows[i]["Qty"].ToString());
 
-                                temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga( dt2.Rows[y]["SellPrice"].ToString() )+ "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString() )+ "</h5> </td>  </tr>";
+                                //    temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input type='number' onchange='Berubah()' min='0' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString())+"'></div> </td> <td> <h5>IDR "+ConvertHarga(totharga.ToString())+"</h5>   </td>  </tr>";
+                                //}
+
+
+                                if (i == dt.Rows.Count - 1)
+                                {
+                                    try
+                                    {
+                                        totalHarga.Text = "IDR. " + ConvertHarga((int.Parse(totalHarga.Text) + totharga).ToString());
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    try
+                                    {
+                                        totalHarga.Text = (int.Parse(totalHarga.Text) + totharga).ToString();
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+
+                                }
+
+
+                                temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td> </tr>";
+
                             }
-                            
+                            conn.Close();
 
-                            //   <% --< tr >
-                            //  < td >
-                            //    < div class="media">
-                            //      <div class="d-flex">
-                            //        <img src = "img/product/single-product/cart-1.jpg" alt="" />
-                            //      </div>
-                            //      <div class="media-body">
-                            //        <p>Minimalistic shop for multipurpose use</p>
-                            //      </div>
-                            //    </div>
-                            //  </td>
-                            //  <td>
-                            //    <h5>$360.00</h5>
-                            //  </td>
-                            //  <td>
-                            //    <div class="product_count">
-                            //      <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                            //      <input class="input-number" type="text" value="1" min="0" max="10">
-                            //      <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                            //    </div>
-                            //  </td>
-                            //  <td>
-                            //    <h5>$720.00</h5>
-                            //  </td>
-                            //</tr>--%>
 
+                            lbIsi.Text = temp;
 
                         }
-                        conn.Close();
-
-
-                        lbIsi.Text = temp;
-
                     }
                 }
                 catch (Exception)
                 {
-                    
+
                 }
                
 
@@ -285,12 +313,68 @@ namespace Proyek
 
             
         }
+
+        protected void msg(object sender, EventArgs e)
+        {
+
+            Response.Write("<script> alert('testestis')</script>");
+
+            //btn_search.Text = "as";
+            //  Response.Write("asa");
+        }
+
+
+        protected void del(object sender, EventArgs e) //delete from database
+        {
+
+            if(Session["siapaUsername"]!=null)
+            {
+                TestConn();
+
+                SqlCommand cmd;
+
+                cmd = new SqlCommand("DELETE FROM dbo.CartUser WHERE Username = '" + Session["siapaUsername"] + "'", conn);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            else
+            {
+                TestConn();
+
+
+                
+
+                SqlCommand cmd;
+
+                cmd = new SqlCommand("DELETE FROM dbo.GuestCart", conn);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+
+            
+
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
+        }
         protected void btnSearch(object sender, EventArgs e)
         {
             Response.Redirect("ProductCategory.aspx?name=" + search_input.Value + "");
             //Response.Write("<script> alert('" + search_input.Value + "')</script>");
             //btn_search.Text = "as";
             //  Response.Write("asa");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script> alert('testestis')</script>");
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Response.Write("<script> alert('testestis')</script>");
         }
     }
 }

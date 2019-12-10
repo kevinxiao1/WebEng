@@ -100,11 +100,10 @@
         </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
+            </header>
                 <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
                 <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
         </div>
     </div>
 </header>
@@ -124,7 +123,10 @@
               </tr>
             </thead>
             <tbody>
+                 <asp:Button ID="btn_delete" runat="server" Text="Delete All" OnClick="del"/>
                 <asp:Label ID="lbIsi" runat="server" Text=""></asp:Label>
+               
+
               <%--<tr>
                 <td>
                   <div class="media">
@@ -288,6 +290,7 @@
         </div>
       </div>
   </section>
+    </form>
   <!--================End Cart Area =================-->
 
   <!--::footer_part start::-->
@@ -316,6 +319,7 @@
             </ul>
           </div>
         </div>
+          
         <div class="col-sm-6 col-lg-2">
           <div class="single_footer_part">
             <h4>Features</h4>
@@ -325,6 +329,7 @@
               <li><a href="">Investor Relations</a></li>
               <li><a href="">Terms of Service</a></li>
             </ul>
+              
           </div>
         </div>
         <div class="col-sm-6 col-lg-2">
@@ -412,6 +417,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/custom.js"></script>
 
     <script>
+
+
+
+
+
         function ConvertHarga(hrg)
         {
             var temp = "";
