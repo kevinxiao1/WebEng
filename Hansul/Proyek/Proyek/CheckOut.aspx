@@ -38,7 +38,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="home.aspx"> <img src="img/Logo/logo.png" alt=""/> </a>
+                        <a class="navbar-brand" href="Home.aspx"> <img src="img/Logo/logo.png" alt=""/> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -107,7 +107,7 @@
         <div class="container ">
             <form class="d-flex justify-content-between search-inner">
                 <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
-                <button type="submit" class="btn"></button>
+                <asp:Button runat="server" type="submit" OnClick="btnSearch" class="btn"></asp:Button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
             </form>
         </div>
@@ -124,7 +124,7 @@
         <div class="check_title">
           <h2>
             Returning Customer?
-            <a href="#">Click here to login</a>
+            <a href="Login.aspx">Click here to login</a>
           </h2>
         </div>
       </div>
@@ -133,55 +133,41 @@
       <div class="cupon_area">
         <div class="check_title">
           <h2>
-            Have a coupon?
-            <a href="#">Click here to enter your code</a>
+            Have a coupon? Insert here!
           </h2>
         </div>
-        <input type="text" placeholder="Enter coupon code" />
-        <a class="tp_btn" href="#">Apply Coupon</a>
-      </div>
+  
+        <asp:TextBox ID="TbCoupon" type="text" placeholder="Enter coupon code" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" OnClick="btnKupon" runat="server" Text="Apply Coupon" />
+    
+    </div>
+        <div>
+        </div>
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-8">
             <h3>Billing Details</h3>
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="first" name="name" />
-                <span class="placeholder" data-placeholder="First name"></span>
+              <div class="col-md-12">
+                  <label>Full Name : </label>
+                  <asp:TextBox ID="tbFullName" placeholder="Full Name" runat="server" class="form-control placeholder"></asp:TextBox>
+                <%--<input type="text" class="form-control" id="first" name="name" />   
+                <span class="placeholder" data-placeholder="First name"></span>--%>
               </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="last" name="name" />
-                <span class="placeholder" data-placeholder="Last name"></span>
+              <div class="col-md-12">
+                  <label>Phone Number : </label>
+                  <asp:TextBox ID="tbPhone" placeholder="Phone Number" class="form-control placeholder" runat="server"></asp:TextBox>
+                <%--<input type="text" class="form-control" id="number" name="number" />
+                <span class="placeholder" data-placeholder="Phone number"></span>--%>
               </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="number" name="number" />
-                <span class="placeholder" data-placeholder="Phone number"></span>
+              <div class="col-md-12">
+                  <label>Address : </label>
+                  <asp:TextBox ID="tbAddress" placeholder="Address" class="form-control placeholder" runat="server"></asp:TextBox>
+                <%--<input type="text" class="form-control" id="add1" name="add1" />
+                <span class="placeholder" data-placeholder="Address line 01"></span>--%>
               </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="email" name="compemailany" />
-                <span class="placeholder" data-placeholder="Email Address"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add1" name="add1" />
-                <span class="placeholder" data-placeholder="Address line 01"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add2" name="add2" />
-                <span class="placeholder" data-placeholder="Address line 02"></span>
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="country" name="country" placeholder="Country" />
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="city" name="city" placeholder="city" />
-              </div>
-             <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="district" name="district" placeholder="district" />
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
-              </div>
-              <div class="col-md-12 form-group">
+              
+              <%--<div class="col-md-12 form-group">
                 <div class="creat_account">
                   <h3>Shipping Details</h3>
                   <input type="checkbox" id="f-option3" name="selector" />
@@ -189,7 +175,7 @@
                 </div>
                 <textarea class="form-control" name="message" id="message" rows="1"
                   placeholder="Order Notes"></textarea>
-              </div>
+              </div>--%>
             </form>
           </div>
           <div class="col-lg-4">
@@ -228,7 +214,7 @@
                     <span>$2160.00</span>
                   </a>
                 </li>--%>
-                <li>
+                <%--<li>
                   <a href="#">Shipping
                     <span>Flat rate: $50.00</span>
                   </a>
@@ -237,7 +223,7 @@
                   <a href="#">Total
                     <span>$2210.00</span>
                   </a>
-                </li>
+                </li>--%>
               </ul>
               <div class="payment_item">
                 <div class="radion_btn">
