@@ -316,6 +316,7 @@
             </ul>
           </div>
         </div>
+          
         <div class="col-sm-6 col-lg-2">
           <div class="single_footer_part">
             <h4>Features</h4>
@@ -325,6 +326,7 @@
               <li><a href="">Investor Relations</a></li>
               <li><a href="">Terms of Service</a></li>
             </ul>
+              
           </div>
         </div>
         <div class="col-sm-6 col-lg-2">
@@ -412,6 +414,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/custom.js"></script>
 
     <script>
+
+
+
+
+
         function ConvertHarga(hrg)
         {
             var temp = "";

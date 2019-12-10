@@ -146,7 +146,7 @@ namespace Proyek
                         //}
 
 
-                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td> <td><input type='button' value='Delete' onclick='msg()'></td> </tr>";
+                        temp += "<tr><td> <div class='media'><div class='d-flex'> <img src=data:image/png;base64," + tes2 + " width='80' height='80'>  </div>  <div class='media-body'>   <p>" + dt2.Rows[y]["Name"] + "</p>  </div> </div>  </td> <td> <h5 id='kiri" + dt2.Rows[y]["ProductID"] + "'>Rp. " + ConvertHarga(dt2.Rows[y]["SellPrice"].ToString()) + "</h5> </td>  <td> <div class='product_count'><input id='" + dt2.Rows[y]["ProductID"] + "' type='number' onchange='Berubah(this.id,this.value)' value='" + ConvertHarga(dt.Rows[i]["Qty"].ToString()) + "' min='0'></div> </td> <td> <h5 id='kanan" + dt2.Rows[y]["ProductID"] + "'> IDR. " + ConvertHarga(totharga.ToString()) + "</h5> </td> <td> <input type='button' runat='server' value='Delete' onclick='msg'></td> </tr>";
                     }
 
                     //   <% --< tr >
@@ -285,6 +285,17 @@ namespace Proyek
 
             
         }
+
+        protected void msg(object sender, EventArgs e)
+        {
+
+            Response.Write("<script> alert('testestis')</script>");
+
+            //btn_search.Text = "as";
+            //  Response.Write("asa");
+        }
+
+
         protected void btnSearch(object sender, EventArgs e)
         {
 
