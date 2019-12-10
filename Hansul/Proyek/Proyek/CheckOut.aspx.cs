@@ -57,8 +57,10 @@ namespace Proyek
             string cmd = "";
             string productName = "";
             string username = "";
+            string user = "";
             LabelPesanan.Text = "";
             int subtotal = 0;
+            DataTable dbuser=new DataTable();
             if (Session["siapa"]==null)
             {
                 cmd = "SELECT * FROM dbo.GuestCart";
@@ -66,7 +68,10 @@ namespace Proyek
             else if (Session["siapa"] != null)
             {
                 cmd = "SELECT * FROM dbo.CartUser";
+                user = "SELECT * FROM dbo.Users";
                 username = (string)Session["siapaUsername"];
+                SqlDataAdapter sql = new SqlDataAdapter(user, conn);
+                sql.Fill(dbuser);
             }
             productName = "SELECT * FROM dbo.Product";
             TestConn();
@@ -122,9 +127,20 @@ namespace Proyek
                             break;
                         }
                     }
+                    for (int x = 0; i < dbuser.Rows.Count; i++)
+                    {
+                        if (dbuser.Rows[i]["Username"].ToString()==username)
+                        {
+                            //lbFirstName.Text = "<input type='text' class='form - control' id='first' name='name' value='"+dbuser.Rows[i]["Name"].ToString()+"' />";
+                            tbFullName.Text = dbuser.Rows[i]["Name"].ToString();
+                            tbPhone.Text = dbuser.Rows[i]["PhoneNumber"].ToString();
+                            tbAddress.Text= dbuser.Rows[i]["Address"].ToString();
+                            break;
+                        }
+                    }
                 }
             }
-            LabelSubtotal.Text = "<li><a href='#'>Subtotal<span>Rp. "+ConvertHarga(subtotal+"")+"</span></a></li>";
+            LabelSubtotal.Text = "<li><a href='#'>Subtotal<span>Rp. "+ConvertHarga(subtotal+"")+"</span></a></li><li><a href='#'>Shipping<span>Rp. 25.000</span></a></li><li><a href='#'>Total<span>Rp. "+ConvertHarga(subtotal+25000+"")+"</span></a></li>";
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -158,11 +174,15 @@ namespace Proyek
         }
         protected void btnSearch(object sender, EventArgs e)
         {
-
-            Response.Write("<script> alert('" + search_input.Value + "')</script>");
-
+            Response.Redirect("ProductCategory.aspx?name=" + search_input.Value + "");
+            //Response.Write("<script> alert('" + search_input.Value + "')</script>");
             //btn_search.Text = "as";
             //  Response.Write("asa");
+        }
+
+        protected void btnKupon(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('tes123')</script>");
         }
     }
 }
