@@ -100,11 +100,10 @@
         </div>
     <div class="search_input" id="search_input_box">
         <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
+            </header>
                 <input runat="server" type="text" class="form-control" id="search_input" placeholder="Search Here"/>
                 <button type="submit" class="btn"></button>
                 <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
         </div>
     </div>
 </header>
@@ -124,7 +123,10 @@
               </tr>
             </thead>
             <tbody>
+                 <asp:Button ID="btn_delete" runat="server" Text="Delete All" OnClick="del"/>
                 <asp:Label ID="lbIsi" runat="server" Text=""></asp:Label>
+               
+
               <%--<tr>
                 <td>
                   <div class="media">
@@ -288,6 +290,7 @@
         </div>
       </div>
   </section>
+    </form>
   <!--================End Cart Area =================-->
 
   <!--::footer_part start::-->

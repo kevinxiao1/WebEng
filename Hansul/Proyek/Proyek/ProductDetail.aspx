@@ -115,7 +115,7 @@
   <!--================End Home Banner Area =================-->
     <form id="form1" runat="server">
   <!--================Single Product Area =================-->
-  <%--<div class="product_image_area section_padding">
+  <%--<%--<div class="product_image_area section_padding">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
         <div class="col-lg-7 col-xl-7">
@@ -134,12 +134,11 @@
               <div data-thumb="img/product/single-product/product_1.png">
                 <img src="img/product/single-product/product_1.png" />
               </div>--%>
-            <%--</div>
+            </div>
           </div>
-        </div>--%>
+        </div>
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
-            <h5>previous <span>|</span> next</h5>
             <asp:Label ID="DescProduct" runat="server" Text="Label"></asp:Label>
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
@@ -157,9 +156,9 @@
             </div>
           </div>
         </div>
-      <%--</div>
+      </div>
     </div>
-  </div>--%>
+  </div>
 
     </form>
   <!--================End Single Product Area =================-->
@@ -170,9 +169,9 @@
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">Description</a>
+            aria-selected="true">Description & Specs</a>
         </li>
-        <li class="nav-item">
+        <%--<li class="nav-item">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
             aria-selected="false">Specification</a>
         </li>
@@ -183,11 +182,11 @@
         <li class="nav-item">
           <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
             aria-selected="false">Reviews</a>
-        </li>
+        </li>--%>
       </ul>
       <div class="tab-content" id="myTabContent">
           <asp:Label ID="LBDescription" runat="server" Text=""></asp:Label>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <%--<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">
             <table class="table">
               <tbody>
@@ -542,7 +541,6 @@
               </div>
             </div>
           </div>
-=======
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
           <p>
             Beryl Cook is one of Britain’s most talented and amusing artists
@@ -573,11 +571,10 @@
             a streamlined plan of cooking that is more efficient for one
             person creating less
           </p>
->>>>>>> be29eba6aefd857fa68727a9ec7b00656fa9bf49
         </div>
       </div>
     </div>
-  </section>
+  </section>--%>
   <!--================End Product Description Area =================-->
 
   <!--::footer_part start::-->
