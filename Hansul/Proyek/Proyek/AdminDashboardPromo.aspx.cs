@@ -12,10 +12,20 @@ namespace Proyek
     public partial class AdminDashboardPromo : System.Web.UI.Page
     {
         //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\SIB 17\Semester 5\Fai\Proyek FAI\Tampulan\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Adriel
-        //String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
-        string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
+        String myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\SIB\Semester 5\Web Engineering\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf';Integrated Security=True";//punya Johannes
+        //string myconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\WebEng\Hansul\Proyek\Proyek\App_Data\WebProject.mdf;Integrated Security=True";//punya Hansel
         SqlConnection conn;
-        public AdminDashboardCategory ad = new AdminDashboardCategory();
+        //   public AdminDashboardCategory ad = new AdminDashboardCategory();
+
+        public void TestConn()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(myconn);
@@ -26,7 +36,7 @@ namespace Proyek
         {
             try
             {
-                ad.TestConn();
+                TestConn();
                 SqlDataAdapter sq = new SqlDataAdapter("SELECT * from promo where PromoID<>'PR000'", conn);
             
                 DataTable dt = new DataTable();
@@ -45,7 +55,7 @@ namespace Proyek
 
         bool cekPromoName(string name)
         {
-            ad.TestConn();
+           TestConn();
             SqlDataAdapter sq = new SqlDataAdapter("SELECT * FROM dbo.Promo", conn);
             DataTable dt = new DataTable();
             sq.Fill(dt);
@@ -67,7 +77,7 @@ namespace Proyek
             string kode = "";
             try
             {
-                ad.TestConn();
+                TestConn();
                 string q = "select max(substring(" + fieldname + ",3,3)) as yes from " + table;
                 SqlDataAdapter sq = new SqlDataAdapter(q, conn);
                 DataTable dt = new DataTable();

@@ -29,8 +29,14 @@
   <link rel="stylesheet" href="css/price_rangs.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
 </head>
 <body>
+    <script
+    src="https://www.paypal.com/sdk/js?client-id=ARKPgTFILBD96SphZFKdBgxEpdajWlVM0ZrA70YIWQyhnEIbG-S-7CbVLC_N-lpKRqmcamBNHmMCO_L0"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+  </script>
     <form id="form1" runat="server">
       <!--::header part start::-->
   <header class="main_menu home_menu">
@@ -253,7 +259,30 @@
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
               </div>
-              <a class="btn_3" href="#">Proceed to Paypal</a>
+             <div id="paypal-button-container"></div>
+
+                   <script>
+
+                       
+                       
+                      paypal.Buttons({
+                        createOrder: function(data, actions) {
+                            //const hrg = document.getElementById("ambil").textContent;
+                            var hrg = $("#ambil").text();
+                            console.log(hrg);
+                          // This function sets up the details of the transaction, including the amount and line item details.
+                          return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '14000' / 14000
+                              }
+                            }]
+                          });
+                        }
+                       }).render('#paypal-button-container');
+
+                      
+                </script>
             </div>
           </div>
         </div>
